@@ -372,3 +372,32 @@ This generated password is for development use only. Your security configuration
 2022-12-23 10:41:31.423  INFO 16060 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-12-23 10:41:31.423  INFO 16060 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2022-12-23 10:41:31.426  INFO 16060 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-01-03 00:44:18.955  INFO 5256 --- [main] c.e.inventory.InventoryApplication       : Starting InventoryApplication using Java 11.0.11 on DESKTOP-HO3T745 with PID 5256 (C:\Users\user\eclipse-workspace\inventory\backend\target\classes started by user in C:\Users\user\eclipse-workspace\inventory\backend)
+2023-01-03 00:44:18.961  INFO 5256 --- [main] c.e.inventory.InventoryApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-01-03 00:44:19.766  INFO 5256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-03 00:44:19.785  INFO 5256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+2023-01-03 00:44:20.563  INFO 5256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-03 00:44:20.575  INFO 5256 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-03 00:44:20.576  INFO 5256 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.70]
+2023-01-03 00:44:20.725  INFO 5256 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-03 00:44:20.726  INFO 5256 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1680 ms
+2023-01-03 00:44:20.927  INFO 5256 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-03 00:44:21.370  INFO 5256 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-01-03 00:44:21.418  INFO 5256 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-03 00:44:21.473  INFO 5256 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-01-03 00:44:21.670  INFO 5256 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-03 00:44:21.811  INFO 5256 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-01-03 00:44:21.989  INFO 5256 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-03 00:44:22.003  INFO 5256 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-03 00:44:22.061  WARN 5256 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-03 00:44:22.119  WARN 5256 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 5fbce92e-f217-413d-9865-bd8ab5f8af44
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-01-03 00:44:22.247  INFO 5256 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@69c33ea2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@59e0d521, org.springframework.security.web.context.SecurityContextPersistenceFilter@49e62b17, org.springframework.security.web.header.HeaderWriterFilter@6814262d, org.springframework.security.web.csrf.CsrfFilter@2abedbbd, org.springframework.security.web.authentication.logout.LogoutFilter@36a58466, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d685f4e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@319aa9ee, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2e3900dc, org.springframework.security.web.session.SessionManagementFilter@6480a063, org.springframework.security.web.access.ExceptionTranslationFilter@ce2eaa7]
+2023-01-03 00:44:22.622  INFO 5256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-03 00:44:22.631  INFO 5256 --- [main] c.e.inventory.InventoryApplication       : Started InventoryApplication in 4.271 seconds (JVM running for 6.067)
+2023-01-03 00:44:34.460  INFO 5256 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-03 00:44:34.460  INFO 5256 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
