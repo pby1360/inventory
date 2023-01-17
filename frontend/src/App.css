@@ -1,1 +1,10 @@
-.App {}
+.App {
+  margin: 1rem;
+}
+
+.App > .top {}
+.App > .bottom {
+  display: flex;
+  gap: 5px;
+  margin-top: 8px;
+}

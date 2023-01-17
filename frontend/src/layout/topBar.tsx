@@ -1,11 +1,15 @@
 import React from 'react';
+import './layout.scss';
 
-const top = () => {
+const topBar = () => {
   return (
-    <div>
-      상단      
+    <div className='topBar'>
+      <a href='/'><span className='logo'></span></a>
+      <div className='control-right'>
+        <button className='login'>login</button>
+      </div>
     </div>
   );
 };
 
-export default top;
+export default topBar;
