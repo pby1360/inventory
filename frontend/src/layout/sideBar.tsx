@@ -10,7 +10,6 @@ interface NavData {
 }
 
 const sideBar = () => {
-
   const navs = routes.map((nav:NavData) => nav.isNavData ? <li><NavLink className={({isActive}) => isActive ? 'active' : undefined } to={nav.path}><span>{nav.label}</span></NavLink></li> : null);
 
   return (

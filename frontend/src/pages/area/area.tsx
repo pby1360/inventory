@@ -1,10 +1,10 @@
 import React from 'react';
-
+import Content from '../../layout/content';
 const area = () => {
   return (
-    <div>
+    <Content>
       구역관리
-    </div>
+    </Content>
   );
 };
 

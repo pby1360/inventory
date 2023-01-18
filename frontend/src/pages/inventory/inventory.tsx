@@ -1,10 +1,11 @@
 import React from 'react';
+import Content from '../../layout/content';
 
 const inventory = () => {
   return (
-    <div>
-      재고 메인      
-    </div>
+    <Content>
+      재고
+    </Content>
   );
 };
 

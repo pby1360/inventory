@@ -1,9 +1,9 @@
 import React from 'react';
 
-const content = () => {
+const content = ({children}:any) => {
   return (
     <div className='content'>
-      메인
+      {children}
     </div>
   );
 };

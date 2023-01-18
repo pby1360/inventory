@@ -1,10 +1,11 @@
 import React from 'react';
+import Content from '../../layout/content';
 
 const site = () => {
   return (
-    <div>
+    <Content>
       사업장 관리
-    </div>
+    </Content>
   );
 };
 

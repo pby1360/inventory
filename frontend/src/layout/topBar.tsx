@@ -6,7 +6,9 @@ const topBar = () => {
     <div className='topBar'>
       <a href='/'><span className='logo'></span></a>
       <div className='control-right'>
-        <button className='login'>login</button>
+      <button className='info'>Info</button>
+        <button className='login'>Sign-in</button>
+        <button className='logout'>Sign-up</button>
       </div>
     </div>
   );

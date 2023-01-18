@@ -1,11 +1,11 @@
 .topBar {
   width: 100%;
   border-radius: 5px;
-  background-color: #e8e8e8;
-  height: 4rem;
+  background-color: #f8f8f8;
+  height: 3rem;
   display: flex;
   justify-content: space-between;
-  padding: 0 1rem 0rem 2rem;
+  padding: 0 1rem 0rem 0.25rem;
   box-shadow: #ccc 0px 2px 2px;
 
 
@@ -15,7 +15,8 @@
       display: block;
       background-image: url(../asset/logo_inventory.png);
       background-size: contain;
-      height: 3rem;
+      background-repeat: no-repeat;
+      height: 2.5rem;
       width: 7.5rem;
       border-radius: 5px;
     }
@@ -23,16 +24,35 @@
 
   .control-right  {
     margin: auto 0;
-    button.login {
-      width: 5rem;
-      height: 2rem;
+
+    button {
+      width: 4rem;
+      height: 2.25rem;
+      background-color: #fff;
+      border: solid 1px #e8e8e8;
+      border-radius: 5px;
+      margin-right: 0.1rem;
+      cursor: pointer;
+
+      &.login {
+        background-color: rgb(30, 117, 231);
+        color: #fff;
+      }
+
+      &.info {
+        border-radius: 50%;
+        width: 3rem;
+        height: 2.75rem;
+        margin-right: 1rem;
+      }
+
     }
   }
 }
 
 .sideBar {
   width: 20rem;
-  background-color: #e8e8e8;
+  background-color: #f8f8f8;
   border-radius: 5px;
   box-shadow: #ccc 0px 2px 2px;
   height: 90vh;
@@ -42,25 +62,35 @@
     padding: 0;
     
     li {
-      background-color: red;
+      // background-color: red;
       border-radius: 3px;
-      padding: 0.25rem;
-      margin-bottom: 0.1rem;
+      padding: 0 0.5rem;
+      margin-right: 0.5rem;
 
       a {
         text-decoration: none;
         color: black;
         width: 100%;
+        display: block;
+        padding: 0.5rem 0 0.5rem 0.5rem;
+        border: solid 1px #f8f8f8;
 
         &.active {
           font-weight: bold;
+          background-color: #fff;
+          border: solid 1px #e8e8e8;
+          border-radius: 5px;
         }
-        
+
+        &:hover {
+          background-color: #fff;
+          border: solid 1px #e8e8e8;
+          border-radius: 5px;
+        }
         span {
           width: 100%;
         }
       }
-
     }
   }
 }
