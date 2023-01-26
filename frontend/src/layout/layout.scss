@@ -36,7 +36,17 @@
 
       &.login {
         background-color: rgb(30, 117, 231);
-        color: #fff;
+
+        & a {
+          color: #fff;
+        }
+      }
+      &.logout {
+        background-color: #fff;
+
+        & a {
+          color: #000;
+        }
       }
 
       &.info {
@@ -44,6 +54,9 @@
         width: 3rem;
         height: 2.75rem;
         margin-right: 1rem;
+      }
+      & a {
+        text-decoration: none;
       }
 
     }
@@ -100,4 +113,5 @@
   background-color: #e8e8e8;
   border-radius: 5px;
   box-shadow: #ccc 0px 2px 2px;
+  height: 90vh;
 }

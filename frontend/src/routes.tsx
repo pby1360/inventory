@@ -4,6 +4,8 @@ import Area from './pages/area/area';
 import Inventory from './pages/inventory/inventory';
 import Item from './pages/item/item';
 import NotFound from './pages/NotFound';
+import SignIn from './components/signIn';
+import SignUp from './components/signUp';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
@@ -41,6 +43,20 @@ export default [
     path: '/item',
     component: Item,
     isNavData: true,
+  },
+  {
+    name: 'signIn',
+    label: 'Sign-in',
+    path: '/sign-in',
+    component: SignIn,
+    isNavData: false,
+  },
+  {
+    name: 'signUp',
+    label: 'Sign-up',
+    path: '/sign-up',
+    component: SignUp,
+    isNavData: false,
   },
   {
     name: 'notFound',

@@ -25,7 +25,8 @@ interface route {
 function App() {
 
   const routeList = routes.map((route:route) => <Route key={route.name} path={route.path} element={<route.component />} />);
-
+  const isLoggedIn = false;
+  
   // const [text, setText] = useState<string>('hello!!');
 
   // useEffect(() => {
@@ -37,20 +38,14 @@ function App() {
   return (
       <div className='App'>
         <div className='bottom'>
-          <TopBar />
+          <TopBar isLoggedIn={isLoggedIn} />
         </div>
         <div className='bottom'>
-          <SideBar />
+          {/* 로그인 여부에 따라 sidebar 노출 */}
+          { isLoggedIn ? <SideBar /> : null}
           <Routes>
             {routeList}
-            {/* <Route path='/' element={<Home />} />
-            <Route path='/site' element={<Site />} />
-            <Route path='/area' element={<Area />} />
-            <Route path='/inventory' element={<Inventory />} />
-            <Route path='/item' element={<Item />} />
-            <Route path='*' element={<NotFound />} /> */}
           </Routes>
-          {/* <Content /> */}
         </div>
       </div>
   );

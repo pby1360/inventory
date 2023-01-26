@@ -1,14 +1,20 @@
 import React from 'react';
 import './layout.scss';
+import { Link } from 'react-router-dom';
 
-const topBar = () => {
+type TopBarProps = {
+  isLoggedIn: boolean;
+}
+
+const topBar: React.FC<TopBarProps> = ({isLoggedIn}) => {
+
   return (
     <div className='topBar'>
       <a href='/'><span className='logo'></span></a>
       <div className='control-right'>
-      <button className='info'>Info</button>
-        <button className='login'>Sign-in</button>
-        <button className='logout'>Sign-up</button>
+        {isLoggedIn ? <button className='info'>Info</button> : null}
+        <button className='login'><Link to={'/sign-in'}>Sign-in</Link></button>
+        <button className='logout'><Link to={'/sign-up'}>Sign-up</Link></button>
       </div>
     </div>
   );

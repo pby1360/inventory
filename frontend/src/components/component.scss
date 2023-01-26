@@ -1,0 +1,68 @@
+div.login {
+
+  width: 100%;
+
+  .box {
+    width: 25rem;
+    height: 30rem;
+
+    margin: 0 auto;
+    padding: 2rem;
+
+    position: relative;
+    top: 10%;
+    display: flex;
+    flex-flow: column;
+    
+    box-shadow: 1px -1px 5px 1px #e8e8e8;
+    border-radius: 5px;
+    background-color: #fcfcfc;
+
+    p {
+      text-align: center;
+    }
+    p:nth-child(1) {
+      font-weight: bold;
+      font-size: x-large;
+    }
+    p:nth-child(2) {
+      font-size: small;
+    }
+
+    form {
+      display: flex;
+      flex-flow: column;
+      gap: 0.25rem;
+
+      input {
+        height: 2rem;
+      }
+      button {
+        height: 2rem;
+        border-radius: 3px;
+        border: solid 1px;
+      }
+      p {
+        font-size: small;
+        margin: 0;
+      }
+    }
+
+    >button {
+      margin-bottom: 0.25rem;
+      height: 2rem;
+      border: solid 1px;
+      border-radius: 5px;
+
+      &.Google {
+        background-color: #fff;
+      }
+      &.Kakao {
+        background-color: #FAE100;
+      }
+      &.Naver {
+        background-color: #19CE60;
+      }
+    }
+  }
+}
