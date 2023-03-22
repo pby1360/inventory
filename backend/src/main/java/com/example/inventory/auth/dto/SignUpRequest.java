@@ -4,10 +4,9 @@ import com.example.inventory.auth.entity.Auth;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Data
-public class SignUpRequestDTO {
+public class SignUpRequest {
     private String id;
     private String password;
     private String name;

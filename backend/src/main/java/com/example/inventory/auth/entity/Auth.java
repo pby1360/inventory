@@ -3,6 +3,7 @@ package com.example.inventory.auth.entity;
 import com.example.inventory.common.entity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "user")
+@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -44,4 +46,7 @@ public class Auth implements Persistable<String> {
     public boolean isNew() {
         return isNew;
     }
+
+
+
 }

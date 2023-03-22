@@ -45,7 +45,7 @@ public class JwtTokenProvider {
 	}
 
 	@Value("${spring.jwt.secret}")
-	private String secretKey = "secretKey";
+	private String secretKey;
 	private final long tokenValidMillisecond = 1000L * 60 * 60; // 1시간 토큰 유효
 
 	/**
@@ -63,10 +63,13 @@ public class JwtTokenProvider {
 	// JWT 토큰 생성
 	public String createToken(String id, List<String> roles) {
 		LOGGER.info("[createToken] 토큰 생성 시작");
+		LOGGER.info("secret ? {}", secretKey);
+
 		Claims claims = Jwts.claims().setSubject(id);
 		claims.put("roles", roles);
 
 		Date now = new Date();
+
 		String token = Jwts.builder()
 				.setClaims(claims)
 				.setIssuedAt(now)
