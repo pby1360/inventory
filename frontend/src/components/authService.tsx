@@ -10,10 +10,19 @@ interface Auth {
 
 class AuthService {
   
-  
   async login (id:string, password:string) {
     await axios.post('/auth/sign-in', {
       id, password
+    }).then(response => {
+      this.registerSuccessfulLoginForJwt(response.data);
+    }).catch(error => {
+      throw(error);
+    })
+  }
+
+  async loginWithKakao (token:string) {
+    await axios.post('/auth/sign-in/kakao', {
+      token
     }).then(response => {
       this.registerSuccessfulLoginForJwt(response.data);
     }).catch(error => {
@@ -34,6 +43,10 @@ class AuthService {
         return true;
     }
     return false;
+  }
+
+  logout() {
+    localStorage.clear();
   }
 }
 

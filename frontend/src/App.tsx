@@ -20,16 +20,19 @@ function App() {
   
   return (
       <div className='App'>
-        <div className='bottom'>
+        <div className='top'>
           <TopBar isLoggedIn={isLoggedIn} />
         </div>
-        <div className='bottom'>
+        <div className='center'>
           {/* 로그인 여부에 따라 sidebar 노출 */}
-          { isLoggedIn ? <SideBar /> : null}
+          { isLoggedIn ?<div className='side'><SideBar /></div> : null}
+          <div className='contents'>
           <Routes>
             {routeList}
           </Routes>
+          </div>
         </div>
+        <div className='bottom'></div>
       </div>
   );
 }

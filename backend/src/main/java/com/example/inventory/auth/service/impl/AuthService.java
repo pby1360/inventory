@@ -4,9 +4,9 @@ import com.example.inventory.auth.dto.SignInRequest;
 import com.example.inventory.auth.dto.SignInResponse;
 import com.example.inventory.auth.dto.SignUpRequest;
 
-public interface AuthService {
+public interface AuthService<T> {
     boolean existById (String id);
 
-    void create (SignUpRequest signUpRequest);
-    SignInResponse signIn (SignInRequest signIn);
+    void create (SignUpRequest request);
+    SignInResponse signIn (T signIn) throws Exception;
 }

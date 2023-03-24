@@ -1,6 +1,7 @@
 package com.example.inventory.auth.entity;
 
 import com.example.inventory.common.entity.BaseEntity;
+import com.example.inventory.common.enums.JoinType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -30,6 +31,9 @@ public class Auth implements Persistable<String> {
 
     private LocalDate birth;
     private String gender;
+
+    private JoinType type;
+
     @CreatedDate
     private LocalDateTime createdAt;
     @LastModifiedDate

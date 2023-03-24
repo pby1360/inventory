@@ -1,13 +1,22 @@
 import React from 'react';
 import './layout.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import authService from '../components/authService';
 
 type TopBarProps = {
   isLoggedIn: boolean;
 }
 
-const topBar: React.FC<TopBarProps> = ({isLoggedIn}) => {
+const TopBar: React.FC<TopBarProps> = ({isLoggedIn}) => {
+
+  const naviate = useNavigate();
+
+  const logout = () => {
+    authService.logout();
+    naviate('/');
+    naviate(0);
+  }
 
   return (
     <div className='topBar'>
@@ -15,8 +24,8 @@ const topBar: React.FC<TopBarProps> = ({isLoggedIn}) => {
       <div className='control-right'>
         {isLoggedIn ?
           <>
-            <Button variant='outline-dark' className='info' href='/sign-in'>Info</Button>
-            <Button variant='dark' className='logout'>Logout</Button>
+            <Button variant='outline-dark' className='info'>Info</Button>
+            <Button variant='dark' onClick={logout} className='logout'>Logout</Button>
           </>
            : 
            <>
@@ -29,4 +38,4 @@ const topBar: React.FC<TopBarProps> = ({isLoggedIn}) => {
   );
 };
 
-export default topBar;
+export default TopBar;

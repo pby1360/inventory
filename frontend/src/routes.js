@@ -1,4 +1,5 @@
 import Home from './pages/home';
+import Dashboard from './pages/dashboard/dashboard';
 import Site from './pages/site/site';
 import Area from './pages/area/area';
 import Inventory from './pages/inventory/inventory';
@@ -14,32 +15,39 @@ export default [
     label: 'home',
     path: '/',
     component: Home,
+    isNavData: false,
+  },
+  {
+    name: 'dashboard',
+    label: '대시보드',
+    path: '/dashboard',
+    component: Dashboard,
     isNavData: true,
   },
   {
     name: 'site',
-    label: 'Site',
+    label: '사업장',
     path: '/site',
     component: Site,
     isNavData: true,
   },
   {
     name: 'area',
-    label: 'Area',
+    label: '저장소',
     path: '/area',
     component: Area,
     isNavData: true,
   },
   {
     name: 'inventory',
-    label: 'Inventory',
+    label: '재고',
     path: '/inventory',
     component: Inventory,
     isNavData: true,
   },
   {
     name: 'item',
-    label: 'Item',
+    label: '품목',
     path: '/item',
     component: Item,
     isNavData: true,

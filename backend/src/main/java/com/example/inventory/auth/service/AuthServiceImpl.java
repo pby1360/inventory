@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 
 @Service
-public class AuthServiceImpl implements AuthService {
+public class AuthServiceImpl implements AuthService<SignInRequest> {
     private final AuthRepository repository;
     private PasswordEncoder encoder;
     private JwtTokenProvider tokenProvider;
