@@ -7,10 +7,11 @@ interface NavData {
   label: string;
   path: string;
   isNavData: boolean;
+  icon: any;
 }
 
 const sideBar = () => {
-  const navs = routes.map((nav:NavData) => nav.isNavData ? <li><NavLink className={({isActive}) => isActive ? 'active' : undefined } to={nav.path}><span>{nav.label}</span></NavLink></li> : null);
+  const navs = routes.map((nav:NavData) => nav.isNavData ? <li key={nav.path}><NavLink className={({isActive}) => isActive ? 'active' : undefined } to={nav.path}><nav.icon className="icon" /><span>{nav.label}</span></NavLink></li> : null);
 
   return (
     <div className='sideBar'>

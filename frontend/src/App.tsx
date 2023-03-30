@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import TopBar from './layout/topBar'
-import SideBar from './layout/sideBar';
+import TopBar from './layout/TopBar'
+import SideBar from './layout/SideBar';
 import authService from './components/authService';
 
 import routes from './routes';

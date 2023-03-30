@@ -6,6 +6,7 @@ import com.example.inventory.auth.dto.SignUpRequest;
 import com.example.inventory.auth.entity.Auth;
 import com.example.inventory.auth.repository.AuthRepository;
 import com.example.inventory.auth.service.impl.AuthService;
+import com.example.inventory.common.enums.JoinType;
 import com.example.inventory.security.JwtTokenProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -37,8 +38,13 @@ public class AuthServiceImpl implements AuthService<SignInRequest> {
     }
 
     @Override
-    public SignInResponse signIn(SignInRequest signIn) {
+    public SignInResponse signIn(SignInRequest signIn)  throws IllegalAccessException{
         Auth auth = repository.findById(signIn.getId()).orElseThrow();
+
+        if (!auth.getType().equals(JoinType.INVENTORY)) {
+            throw new IllegalAccessException("Wrong Sign-in route");
+        }
+
         if (!matchPassword(signIn.getPassword(), auth.getPassword())) {
             throw new BadCredentialsException("The Passwords does not match");
         }

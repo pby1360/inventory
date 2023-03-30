@@ -34,7 +34,7 @@ public class AuthController {
     }
 
     @PostMapping("/sign-in")
-    public ResponseEntity<SignInResponse> signIn(@RequestBody SignInRequest siginIn) {
+    public ResponseEntity<?> signIn(@RequestBody SignInRequest siginIn) {
         log.info(":: signIn id {}", siginIn.getId());
         log.info(":: signIn password {}", siginIn.getPassword());
 
@@ -43,8 +43,10 @@ public class AuthController {
              return ResponseEntity.status(HttpStatus.OK).body(response);
         } catch (NoSuchElementException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } catch (IllegalAccessException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("jointype");
         } catch (BadCredentialsException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("password");
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);

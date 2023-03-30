@@ -5,7 +5,7 @@
   height: 3rem;
   display: flex;
   justify-content: space-between;
-  padding: 0 1rem 0rem 0.25rem;
+  padding: 0 0.25rem;
   box-shadow: #ccc 3px 2px 2px;
 
 
@@ -81,6 +81,10 @@
       padding: 0 0.5rem;
       margin-right: 0.5rem;
 
+      .icon {
+        
+      }
+
       a {
         text-decoration: none;
         color: black;
@@ -103,6 +107,7 @@
         }
         span {
           width: 100%;
+          margin-left: 0.5rem;
         }
       }
     }
@@ -111,8 +116,28 @@
 
 .content {
   width: 100%;
-  background-color: #e8e8e8;
+  background-color: #f8f8f8;
   border-radius: 5px;
   box-shadow: #ccc 0px 2px 2px;
   height: 90vh;
+}
+
+.content-top-bar {
+  background-color: #fff;
+
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  display: flex;
+  box-shadow: #ccc 0px 2px 2px;
+
+  .title {
+    flex: 1;
+    margin: auto 0;
+  }
+  .buttons {
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    gap: 2px;
+  }
 }

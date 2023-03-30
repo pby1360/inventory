@@ -18,8 +18,9 @@ const SignIn = () => {
 
   const NOT_FOUND = 'Email not found.';
   const BAD_CREDENTIAL = 'Wrong password.';
-  const ERROR = 'Faild to sign-in.';
+  const BAD_SIGNIN_ROUTE = 'Wrong sign-in route.';
   const BAD_REQUEST = 'Bad request. Login to Inventory.';
+  const ERROR = 'Faild to sign-in.';
 
   const [openModal, setOpenModal] = useState(false);
   const [message, setMessage] = useState('');
@@ -35,7 +36,11 @@ const SignIn = () => {
       if (status === 404) {
         setMessage(NOT_FOUND);
       } else if(status === 409) {
-        setMessage(BAD_CREDENTIAL);
+        if (error.response.data === 'jointype') {
+          setMessage(BAD_SIGNIN_ROUTE);          
+        } else {
+          setMessage(BAD_CREDENTIAL);          
+        }
       } else {
         setMessage(ERROR);
       }
