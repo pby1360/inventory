@@ -2,7 +2,7 @@ import React from 'react';
 import './layout.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import authService from '../components/authService';
+import authService from '../components/AuthService';
 
 type TopBarProps = {
   isLoggedIn: boolean;

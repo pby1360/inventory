@@ -1,6 +1,6 @@
 import React from 'react';
 
-const content = ({children, className }:any) => {
+const Content = ({children, className }:any) => {
   return (
     <div className={`content ${className ? className : ''}`}>
       {children}
@@ -8,4 +8,4 @@ const content = ({children, className }:any) => {
   );
 };
 
-export default content;
+export default Content;

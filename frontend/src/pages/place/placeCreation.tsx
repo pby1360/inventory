@@ -3,8 +3,11 @@ import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Content from '../../layout/Content';
 import ContentTopBar from '../../layout/ContentTopBar';
+import Toast from 'components/CustomToast';
+import Modal from 'components/CustomModal';
 
 import { Place } from 'components/Types'
+// import { axios } from 'components/CustomAxios';
 
 const PlaceCreation = () => {
   
@@ -19,14 +22,22 @@ const PlaceCreation = () => {
     remark: '',
   });
 
+  const [modalProps, setModalProps] = useState( {
+    show: false,
+    title: '완료',
+    message: '사업장 생성을 완료했습니다.',
+  })
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e);
     setFormData({ ...formData, [e.currentTarget.name]: e.currentTarget.value});
   }
 
   const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setModalProps({...modalProps, show: true});
   }
+
+  const callback = () => navigate('/place');
 
   return (
     <Content className='place-creation'>
@@ -40,15 +51,15 @@ const PlaceCreation = () => {
       <Form id='placeForm' className='d-grid p-3 form mt-1' onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label><strong>사업장명 *</strong></Form.Label>
-          <Form.Control as="input" required name="name" value={formData.name} onChange={handleChange} />
+          <Form.Control as="input" minLength={2} required name="name" value={formData.name} onChange={handleChange} />
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label><strong>업종 *</strong></Form.Label>
-          <Form.Control as="input" required name="category" value={formData.category} onChange={handleChange} />
+          <Form.Control as="input" minLength={2} required name="category" value={formData.category} onChange={handleChange} />
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label><strong>우편번호</strong></Form.Label>
-          <Form.Control as="input" name="zipCode" value={formData.zipCode} onChange={handleChange} />
+          <Form.Control as="input" type='number' name="zipCode" value={formData.zipCode} onChange={handleChange} />
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label><strong>주소</strong></Form.Label>
@@ -64,9 +75,10 @@ const PlaceCreation = () => {
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label><strong>비고</strong></Form.Label>
-          <Form.Control as="input" type="textarea" name="remark" value={formData.remark} onChange={handleChange} />
+          <Form.Control as="textarea" name="remark" value={formData.remark} onChange={handleChange} />
         </Form.Group>
       </Form>
+      <Modal props={modalProps} callback={callback}></Modal>
     </Content>
   );
 };

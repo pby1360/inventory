@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import authService from './authService';
+import authService from './AuthService';
 import './component.scss';
 
 declare global {

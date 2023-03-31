@@ -1,4 +1,4 @@
-import { axios } from "./customAxios";
+import { axios } from "./CustomAxios";
 
 interface Auth {
   id: string;

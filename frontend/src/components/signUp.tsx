@@ -2,7 +2,7 @@
 import React, { useMemo, useState } from 'react';
 import { Form, Button, Row, Col, FormLabel, Toast, ToastContainer, Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { axios } from '../components/customAxios';
+import { axios } from './CustomAxios';
 
 import './component.scss';
 const SignUp = () => {
