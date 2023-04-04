@@ -3,6 +3,7 @@ import React, { useMemo, useState } from 'react';
 import { Form, Button, Row, Col, FormLabel, Toast, ToastContainer, Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { axios } from './CustomAxios';
+import Loading from 'components/Loading';
 
 import './component.scss';
 const SignUp = () => {
@@ -20,6 +21,7 @@ const SignUp = () => {
     message: '',
     bg: 'primary'
   }
+  const [isLoading, setLoading] = useState(false);
   const [toastProps , setToastProps] = useState(initProps);
   const [openModal, setOpenModal] = useState(false);
   const [formData, setFormData ]
@@ -41,13 +43,13 @@ const SignUp = () => {
   
   const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    
     if (formData.password !== formData.confirmPassword) {
       return setToastProps({ show: true, title: 'Warning',message: CHECK_PASSWORD, bg: 'warning'});
     }
 
+    setLoading(true);
     const data = { ...formData, birth: `${formData.year}-${Number(formData.month) < 10 ? '0' + formData.month : formData.month}-${Number(formData.day) < 10 ? '0' + formData.day : formData.day}`};
-
     await axios.post('/auth/sign-up', data)
       .then((response) => {
         setOpenModal(true);
@@ -57,7 +59,7 @@ const SignUp = () => {
         } else {
           return setToastProps({ show: true, title: 'Danger',message: ERROR, bg: 'danger'});
         }
-      });
+      }).finally(() => setLoading(false));
   }
 
   const handleClick = () => navigate('/sign-in');
@@ -177,6 +179,7 @@ const SignUp = () => {
           <Button size='lg' type='submit'>Sign-up</Button>
         </Form>
       </section>
+      {isLoading ? <Loading></Loading> : null}
     </div>
   );
 };

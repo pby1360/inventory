@@ -14,7 +14,8 @@ const CustomModal = memo(function CustomModal({props}:any) {
 
   useEffect(() => {
     setModalProps({...modalProps, ...props});
-  }, [props, modalProps]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props]);
 
   const handleClick = () => {
     setModalProps({ ...modalProps, show: false});

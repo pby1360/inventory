@@ -25,11 +25,13 @@ public class PlaceUser extends BaseEntity {
     private UserPermission permission;
 
     @ManyToOne
-    @JoinColumn(name = "place_id", insertable = false, updatable = false)
+    @JoinColumn
+//    @JoinColumn(name = "place_id", insertable = false, updatable = false)
     private Place place;
 
-    public PlaceUser(String userId, Long placeId, UserPlaceStatus status, UserPermission permission) {
+    public PlaceUser(String userId, Place place,UserPlaceStatus status, UserPermission permission) {
         this.userId = userId;
+        this.place = place;
         this.status = status;
         this.permission = permission;
     }

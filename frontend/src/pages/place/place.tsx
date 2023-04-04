@@ -6,6 +6,7 @@ import ContentTopBar from '../../layout/ContentTopBar';
 import './place.scss';
 import { PlaceUser } from 'components/Types';
 import { axios } from 'components/CustomAxios';
+import Loading from 'components/Loading';
 
 const Place = () => {
 
@@ -16,11 +17,15 @@ const Place = () => {
   const [list, setList] = useState<PlaceUser[]>([]);
 
   const getPlaceList = async () => {
+    setLoading(true);
     await axios.get('/api/places')
       .then((response:any) => {
         setList(response.data);
+        setLoading(false);
       })
   }
+
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     getPlaceList();
@@ -54,6 +59,7 @@ const Place = () => {
           </section>
           )}
       </section>
+      {isLoading ? <Loading></Loading> : null}
     </Content>
   );
 };

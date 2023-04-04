@@ -7,7 +7,7 @@ import ContentTopBar from '../../layout/ContentTopBar';
 import Modal from 'components/CustomModal';
 import { axios } from 'components/CustomAxios';
 import auth from 'components/AuthService';
-
+import Loading from 'components/Loading';
 import { Place } from 'components/Types'
 // import { axios } from 'components/CustomAxios';
 
@@ -23,6 +23,8 @@ const PlaceCreation = () => {
     contact: '',
     remark: '',
   });
+
+  const [isLoading, setLoading] = useState(false);
 
   const [modalProps, setModalProps] = useState( {
     show: false,
@@ -59,10 +61,10 @@ const PlaceCreation = () => {
     
     const data = { ...formData, userId: auth.user().id };
 
+    // setLoading(true);
     await axios.post('/api/places', data)
       .then((response:any) => {
-        console.log(response);
-
+        
         if (response.status === 201) {
           setModalProps({
             show: true,
@@ -85,7 +87,8 @@ const PlaceCreation = () => {
           message: '사업장 생성을 실패 했습니다.',
           callback: () => null,
         });
-      });
+      })
+      .finally(() => setLoading(false));
   }
 
   return (
@@ -128,6 +131,7 @@ const PlaceCreation = () => {
         </Form.Group>
       </Form>
       <Modal props={modalProps}></Modal>
+      {isLoading ? <Loading></Loading> : null}
     </Content>
   );
 };

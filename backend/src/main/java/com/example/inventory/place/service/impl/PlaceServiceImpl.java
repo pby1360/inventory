@@ -69,7 +69,7 @@ public class PlaceServiceImpl implements PlaceSerivce {
     @Override
     public void createPlace(Place place) {
         Place newPlace = repository.save(place);
-        PlaceUser user = new PlaceUser(newPlace.getCreatedBy(), newPlace.getId(), UserPlaceStatus.IN_USE, UserPermission.ADMIN);
+        PlaceUser user = new PlaceUser(newPlace.getCreatedBy(), newPlace, UserPlaceStatus.IN_USE, UserPermission.ADMIN);
         placeUserRepository.save(user);
     }
 

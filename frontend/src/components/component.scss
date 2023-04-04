@@ -104,3 +104,37 @@ div.join {
 
   }
 }
+.loading {
+  background-color: #0001;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .icon {
+    width: 5rem;
+    height: 5rem;
+
+    animation-name: rotateImg;    
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-direction: normal;
+
+    background-image: url('/asset/loading.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+}
+@keyframes rotateImg {
+  100% {
+      transform: rotate(360deg);
+  }
+}

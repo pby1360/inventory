@@ -3,7 +3,7 @@ import { Button, Form, Modal } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import authService from './AuthService';
 import './component.scss';
-
+import Loading from 'components/Loading';
 declare global {
   interface Window {
     Kakao?: any;
@@ -24,8 +24,10 @@ const SignIn = () => {
 
   const [openModal, setOpenModal] = useState(false);
   const [message, setMessage] = useState('');
+  const [isLoading, setLoading] = useState(false);
 
   const handleSubmit = (event:any) => {
+    setLoading(true);
     event.preventDefault();
     authService.login(event.target.id.value, event.target.password.value)
     .then(() => {
@@ -50,10 +52,11 @@ const SignIn = () => {
         setMessage(ERROR);
       }
       setOpenModal(true);
-    });
+    }).finally(() => setLoading(false));
   }
 
   const loginWithKakao = () => {
+    setLoading(true);
     Kakao.Auth.login({
       success: function(auth:any) {
         authService.loginWithKakao(auth.access_token)
@@ -76,7 +79,7 @@ const SignIn = () => {
           }
           setOpenModal(true);
 
-        });
+        }).finally(() => setLoading(false));
       },
     })
   }
@@ -121,6 +124,7 @@ const SignIn = () => {
         <button className='Google'>Google 로그인</button>
         <button onClick={unlink}>연결끊기</button>
       </div>
+      {isLoading ? <Loading></Loading> : null}
     </div>
   );
 };
