@@ -6,8 +6,18 @@ interface Place {
   zipCode?: string;
   address1?: string;
   address2?: string;
-  contract?: string;
+  contact?: string;
   remark?: string;
 };
 
-export type { Place };
+interface PlaceUser {
+  placeId: number;
+  placeName: string;
+  category: string;
+  address?: string;
+  permission: string;
+  userStatus: string;
+  userCount : number;
+}
+
+export type { Place, PlaceUser };

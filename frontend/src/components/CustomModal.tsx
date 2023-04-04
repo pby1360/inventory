@@ -1,25 +1,26 @@
 import React, { memo, useEffect, useState} from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
-const CustomModal = memo(function CustomModal({props, callback}:any) {
+const CustomModal = memo(function CustomModal({props}:any) {
 
   const defaultSetting = {
     show: false,
     title: '',
     message: '',
+    callback: () => null,
   }
 
   const [modalProps , setModalProps] = useState(defaultSetting);
 
   useEffect(() => {
     setModalProps({...modalProps, ...props});
-  }, [props]);
+  }, [props, modalProps]);
 
   const handleClick = () => {
     setModalProps({ ...modalProps, show: false});
-    if (callback) {
-      callback();
-    }
+    // if (modalProps.callback) {
+    modalProps.callback();
+    // }
   };
 
   return (

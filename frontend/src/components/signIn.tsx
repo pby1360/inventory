@@ -32,14 +32,19 @@ const SignIn = () => {
       navigate('/dashboard', {replace: true});
       navigate(0);
     }).catch(error => {
-      const status = error.response.status;
-      if (status === 404) {
-        setMessage(NOT_FOUND);
-      } else if(status === 409) {
-        if (error.response.data === 'jointype') {
-          setMessage(BAD_SIGNIN_ROUTE);          
+
+      if (error.response) {
+        const status = error.response.status;
+        if (status === 404) {
+          setMessage(NOT_FOUND);
+        } else if(status === 409) {
+          if (error.response.data === 'jointype') {
+            setMessage(BAD_SIGNIN_ROUTE);          
+          } else {
+            setMessage(BAD_CREDENTIAL);          
+          }
         } else {
-          setMessage(BAD_CREDENTIAL);          
+          setMessage(ERROR);
         }
       } else {
         setMessage(ERROR);
@@ -56,11 +61,16 @@ const SignIn = () => {
           navigate('/dashboard', {replace: true});
           navigate(0);
         }).catch((error) => {
+          
+          if (error.response) {
 
-          const status = error.response.status;
+            const status = error.response.status;
 
-          if (status === 400) {
-            setMessage(BAD_REQUEST);
+            if (status === 400) {
+              setMessage(BAD_REQUEST);
+            } else {
+              setMessage(ERROR);
+            }
           } else {
             setMessage(ERROR);
           }
@@ -106,10 +116,10 @@ const SignIn = () => {
           <p><Link to={'/sign-up'}>Sign Up</Link> for free</p>
         </Form>
         <p>or</p>
-        {/* <button className='Google'>Google</button> */}
         <button className='Kakao' onClick={loginWithKakao}></button>
+        <button className='Naver'>Naver 로그인</button>
+        <button className='Google'>Google 로그인</button>
         <button onClick={unlink}>연결끊기</button>
-        {/* <button className='Naver'>Naver</button> */}
       </div>
     </div>
   );

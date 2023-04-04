@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, FormCheck } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import Content from '../../layout/Content';
 import ContentTopBar from '../../layout/ContentTopBar';
 import './place.scss';
+import { PlaceUser } from 'components/Types';
+import { axios } from 'components/CustomAxios';
 
 const Place = () => {
 
@@ -11,25 +13,18 @@ const Place = () => {
 
   const toCreation = () => navigate('/place/creation');
 
-  const list = [
-    {
-      id: 1,
-      name: '데일리네일',
-      category: '미용업',
-      permission: '관리자',
-      address: '경기도 이천시 창전동 428-1',
-      userCount: 5,
-    },
-    {
-      id: 2,
-      name: '샐러디',
-      category: '일반음식점',
-      permission: '사용자',
-      address: '경기도 이천시 중리동 233-1 2층',
-      userCount: 2,
-    },
-  ]
+  const [list, setList] = useState<PlaceUser[]>([]);
 
+  const getPlaceList = async () => {
+    await axios.get('/api/places')
+      .then((response:any) => {
+        setList(response.data);
+      })
+  }
+
+  useEffect(() => {
+    getPlaceList();
+  }, []);
   return (
     <Content className='place-list'>
       <ContentTopBar>
@@ -41,15 +36,16 @@ const Place = () => {
       </ContentTopBar>
       <section className='center'>
         {list.map(item =>
-          <section className='place-item' key={item.id}>
+          <section className='place-item' key={item.placeId}>
             <div className='place-item-header'>
-              <div className='place-item-name'>{item.name}</div>
+              <div className='place-item-name'>{item.placeName}</div>
               {/* <FormCheck className='icon-check'></FormCheck> */}
             </div>
             <div className='place-item-body'>
               <div className='place-info'>{item.category}</div>
               <div className='place-info'>{item.address}</div>
               <div className='place-info'>{item.permission}</div>
+              <div className='place-info'>{item.userStatus}</div>
             </div>
             <div className='place-item-footer'>
               <div>users<span>{item.userCount}</span></div>

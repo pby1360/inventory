@@ -1,4 +1,4 @@
-package com.example.inventory.auth.service.impl;
+package com.example.inventory.auth.service;
 
 import com.example.inventory.auth.dto.SignInRequest;
 import com.example.inventory.auth.dto.SignInResponse;

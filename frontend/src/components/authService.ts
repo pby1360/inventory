@@ -1,11 +1,11 @@
 import { axios } from "./CustomAxios";
 
 interface Auth {
-  id: string;
-  name: string;
-  roles: Array<string>;
+  id?: string;
+  name?: string;
+  roles?: Array<string>;
   token: string;
-  expiredAt: number;
+  expiredAt?: number;
 }
 
 class AuthService {
@@ -32,9 +32,10 @@ class AuthService {
 
   registerSuccessfulLoginForJwt(data:Auth) {
     localStorage.setItem('token', data.token);
-    localStorage.setItem('id', data.id);
-    localStorage.setItem('name', data.name);
-    localStorage.setItem('expire', String(data.expiredAt));
+    localStorage.setItem('user', JSON.stringify(data));
+    // localStorage.setItem('id', data.id);
+    // localStorage.setItem('name', data.name);
+    // localStorage.setItem('expire', String(data.expiredAt));
   }
 
   isUserLoggedIn() {
@@ -45,8 +46,28 @@ class AuthService {
     return false;
   }
 
+  isExpired() {
+    const user = this.user();
+    if (user.expiredAt) {
+      return new Date().getTime() > user.expiredAt;
+    } else {
+      return true;
+    }
+  }
+
   logout() {
     localStorage.clear();
+  }
+
+  user () {
+    const userJsonStr = localStorage.getItem('user');
+    let user:Auth = {
+      token: '',
+    };
+    if (userJsonStr) {
+      user = JSON.parse(userJsonStr);
+    }
+    return user;
   }
 }
 

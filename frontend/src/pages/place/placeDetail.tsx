@@ -11,10 +11,11 @@ import auth from 'components/AuthService';
 import { Place } from 'components/Types'
 // import { axios } from 'components/CustomAxios';
 
-const PlaceCreation = () => {
+const PlaceDetail = () => {
   
   const navigate = useNavigate();
   const [formData, setFormData] = useState<Place>({
+    id: undefined,
     name: '',
     category: '',
     zipCode: '',
@@ -91,7 +92,7 @@ const PlaceCreation = () => {
   return (
     <Content className='place-creation'>
       <ContentTopBar>
-      <p className='title'>사업장 생성</p>
+      <p className='title'>사업장 상세정보</p>
         <div className='buttons'>
           <Button type='submit' form='placeForm'>저장</Button>
           <Button onClick={() => navigate('/place')} variant='dark'>취소</Button>
@@ -132,4 +133,4 @@ const PlaceCreation = () => {
   );
 };
 
-export default PlaceCreation;
+export default PlaceDetail;

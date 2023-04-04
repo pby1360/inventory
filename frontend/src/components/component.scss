@@ -45,26 +45,32 @@ div.login {
     }
 
     > button {
-      // margin-bottom: 0.25rem;
+      margin-bottom: 0.1rem;
       // height: 2rem;
-      // border: solid 1px;
       // border-radius: 5px;
       border: none;
       border-radius: 7px;
       background-color: none;
 
       &.Kakao {
-        // background-color: #FAE100;
         background-image: url(../asset/kakao_login_medium_wide.png);
         background-repeat: no-repeat;
-        background-size: contain;
+        background-color: #FEE500;
+        background-size: auto;
+        background-position: center;
         height: 3.2rem;
       }
       &.Google {
+        border: solid 1px #c8c8c8;
         background-color: #fff;
+        height: 3.2rem;
+        font-weight: bold;
       }
       &.Naver {
         background-color: #19CE60;
+        height: 3.2rem;
+        font-weight: bold;
+        color: #fff;
       }
     }
     > .kakao {

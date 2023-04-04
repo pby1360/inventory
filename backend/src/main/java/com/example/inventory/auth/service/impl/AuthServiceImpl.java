@@ -1,11 +1,11 @@
-package com.example.inventory.auth.service;
+package com.example.inventory.auth.service.impl;
 
 import com.example.inventory.auth.dto.SignInRequest;
 import com.example.inventory.auth.dto.SignInResponse;
 import com.example.inventory.auth.dto.SignUpRequest;
 import com.example.inventory.auth.entity.Auth;
 import com.example.inventory.auth.repository.AuthRepository;
-import com.example.inventory.auth.service.impl.AuthService;
+import com.example.inventory.auth.service.AuthService;
 import com.example.inventory.common.enums.JoinType;
 import com.example.inventory.security.JwtTokenProvider;
 import org.springframework.security.authentication.BadCredentialsException;
