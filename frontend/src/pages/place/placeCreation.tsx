@@ -69,7 +69,7 @@ const PlaceCreation = () => {
           setModalProps({
             show: true,
             title: '생성 완료',
-            message: '사업장 생성을 완료했습니다.',
+            message: '사업장 생성을 완료 했습니다.',
             callback: () => successCallback(),
           });
         } else {

@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class UserPlacesResponse {
+public class UserPlaceResponse {
     private Long placeId;
     private String placeName;
     private String category;

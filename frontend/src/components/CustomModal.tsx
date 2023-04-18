@@ -7,6 +7,7 @@ const CustomModal = memo(function CustomModal({props}:any) {
     show: false,
     title: '',
     message: '',
+    cancel: false,
     callback: () => null,
   }
 
@@ -33,7 +34,8 @@ const CustomModal = memo(function CustomModal({props}:any) {
         <p>{modalProps.message}</p>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={handleClick} variant="success">OK</Button>
+        <Button onClick={handleClick} variant="primary">확인</Button>
+        {modalProps.cancel ? <Button onClick={() => setModalProps({ ...modalProps, show: false})} variant="dark">취소</Button> : null}
       </Modal.Footer>
     </Modal>
   );

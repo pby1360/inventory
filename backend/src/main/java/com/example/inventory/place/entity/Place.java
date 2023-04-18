@@ -1,6 +1,7 @@
 package com.example.inventory.place.entity;
 
 import com.example.inventory.common.entity.BaseEntity;
+import com.example.inventory.place.dto.PlaceModifyDTO;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -34,4 +35,13 @@ public class Place extends BaseEntity {
 //    @JoinColumn(name = "place_id", referencedColumnName = "id")
     private List<PlaceUser> placeUsers = new ArrayList<>();
 
+    public void modify(PlaceModifyDTO dto) {
+        this.name = dto.getName();
+        this.category = dto.getCategory();
+        this.address1 = dto.getAddress1();
+        this.address2 = dto.getAddress2();
+        this.zipCode = dto.getZipCode();
+        this.contact = dto.getContact();
+        this.remark = dto.getRemark();
+    }
 }

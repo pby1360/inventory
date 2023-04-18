@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface PlaceUserRepository extends JpaRepository<PlaceUser, Long> {
     List<PlaceUser> findByUserId(String userId);
+    PlaceUser findByUserIdAndPlaceId(String userId, Long placeId);
+    List<PlaceUser> findByPlaceId(Long placeId);
 }

@@ -16,6 +16,14 @@ const Place = () => {
 
   const [list, setList] = useState<PlaceUser[]>([]);
 
+  const [selectedItem, setSelectedItem] = useState<PlaceUser>();
+
+  const selectItem = (item:PlaceUser) => setSelectedItem(item);
+
+  const toDetail = () => navigate(`/place/${selectedItem?.placeId}`);
+
+  const toPlaceUsers = () => navigate(`/place/${selectedItem?.placeId}/users`);
+
   const getPlaceList = async () => {
     setLoading(true);
     await axios.get('/api/places')
@@ -36,12 +44,14 @@ const Place = () => {
         <p className='title'>사업장 목록</p>
         <div className='buttons'>
           <Button onClick={toCreation}>생성</Button>
+          <Button variant='dark' disabled={selectedItem?.placeId == null} onClick={toDetail}>상세정보</Button>
+          <Button variant='dark' disabled={selectedItem?.placeId == null} onClick={toPlaceUsers}>사용자목록</Button>
           <Button variant='dark'>고정</Button>
         </div>
       </ContentTopBar>
       <section className='center'>
         {list.map(item =>
-          <section className='place-item' key={item.placeId}>
+          <section className={`place-item ${item.placeId === selectedItem?.placeId ? 'selected' : ''}`} key={item.placeId} onClick={() => selectItem(item)}>
             <div className='place-item-header'>
               <div className='place-item-name'>{item.placeName}</div>
               {/* <FormCheck className='icon-check'></FormCheck> */}
@@ -54,7 +64,7 @@ const Place = () => {
             </div>
             <div className='place-item-footer'>
               <div>users<span>{item.userCount}</span></div>
-              <div>more</div>
+              {/* <div>more</div> */}
             </div>
           </section>
           )}

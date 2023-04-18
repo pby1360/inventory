@@ -1,21 +1,23 @@
 package com.example.inventory.place.service;
 
+import com.example.inventory.common.DuplicateException;
+import com.example.inventory.place.dto.PlaceDTO;
+import com.example.inventory.place.dto.PlaceModifyDTO;
+import com.example.inventory.place.dto.PlaceUserDTO;
 import com.example.inventory.place.entity.Place;
-import com.example.inventory.place.entity.PlaceUser;
-import com.example.inventory.place.model.PlaceModel;
-import com.example.inventory.place.model.PlaceUserModel;
 
 import java.util.List;
 
 public interface PlaceSerivce {
 
-    PlaceModel getPlaces(Long id);
-    List<PlaceUserModel> getPlacesByUser(String userId);
+    PlaceDTO getPlaceDetail(Long id);
+    List<PlaceUserDTO> getPlacesByUser(String userId);
     void createPlace(Place place);
-    void modifyPlace(Place place);
+    void modifyPlace(PlaceModifyDTO place) throws Exception;
     void deletePlace(Long pliaceId);
+    List<PlaceUserDTO> getPlaceUsers(Long id);
 
-//    void addUSer();
-//    void modifyUserPermission();
-//    void removeUser();
+    void addUSer(PlaceUserDTO userDto) throws DuplicateException;
+    void modifyPlaceUser(PlaceUserDTO userDto);
+    void removeUser(Long placeUserId);
 }

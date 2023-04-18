@@ -20,4 +20,15 @@ interface PlaceUser {
   userCount : number;
 }
 
-export type { Place, PlaceUser };
+interface User {
+  id: number;
+  placeId: number;
+  userId: string;
+  userName: string;
+  phoneNumber: string;  
+  permission: string;
+  status: string;
+  createAt: string;
+}
+
+export type { Place, PlaceUser, User };

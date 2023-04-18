@@ -32,11 +32,11 @@ axios.interceptors.response.use(
   },
 
   function (error) {
-      console.error(error);
-      // if(error.response.data.error === "Unauthorized") {
-          // localStorage.clear();
-          // window.location.replace("/");
-      // }
+      if(error.response.status === 401) {
+        alert('로그인 시간이 만료 되었습니다.');
+        localStorage.clear();
+        window.location.replace("/sign-in");
+      }
   /*
       http status가 200이 아닌 경우
       응답 에러 직전 호출됩니다.

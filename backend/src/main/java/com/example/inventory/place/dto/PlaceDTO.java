@@ -1,4 +1,4 @@
-package com.example.inventory.place.model;
+package com.example.inventory.place.dto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -10,7 +10,7 @@ import java.util.List;
 @Builder
 @Getter
 @Setter
-public class PlaceModel {
+public class PlaceDTO {
     private Long id;
     private String name;
     private String category;
@@ -20,5 +20,5 @@ public class PlaceModel {
     private String contact;
     private String remark;
 
-    private List<PlaceUserModel> placeUsers = new ArrayList<>();
+    private List<PlaceUserDTO> placeUsers = new ArrayList<>();
 }

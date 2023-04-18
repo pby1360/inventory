@@ -32,6 +32,8 @@ public class Auth implements Persistable<String> {
     private LocalDate birth;
     private String gender;
 
+    private String phoneNumber;
+
     private JoinType type;
 
     @CreatedDate

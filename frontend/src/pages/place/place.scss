@@ -1,4 +1,4 @@
-.place-list, .place-creation {
+.place-list, .place-creation, .place-users {
   padding: 0.5rem;
 
   .center {
@@ -7,6 +7,9 @@
     gap: 0.25rem;
 
     .place-item {
+      &.selected {
+        border: solid 2px #0D99FF;
+      }
       &:hover {
         border: solid 1px #0D99FF;
       }
@@ -57,5 +60,64 @@
     background-color: #fff;
     border-radius: 5px;
     box-shadow: #ccc 0px 2px 2px;
+  }
+}
+
+.place-users {
+
+  >.place-users-list {
+    padding: 0.5rem 0;
+
+    >.place-users-list-column {
+      display: flex;
+
+      margin-bottom: 0.1rem;
+      padding: 0.1rem 0.25rem;
+      border: solid 1px #ccc;
+      border-radius: 5px;
+      background-color: #eee;
+      
+      > span {
+        &:nth-child(1) {
+          flex: 0.5;
+        }
+        padding: 0 1rem;
+        flex: 1;
+      }
+      >.item-buttons {
+        flex: 1;
+      }
+    }
+    
+    >.place-users-list-item {
+      display: flex;
+
+      margin-bottom: 0.25rem;
+      padding: 0.25rem;
+      border: solid 1px #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+
+      &:hover {
+        border: solid 1px #0D99FF;
+      }
+
+      > span {
+        &:nth-child(1) {
+          flex: 0.5;
+        }
+        padding: 0 1rem;
+        flex: 1;
+      }
+      
+      >.item-buttons {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        > button:nth-child(1) {
+          margin-right: 0.1rem;
+        }
+      }
+    }
   }
 }

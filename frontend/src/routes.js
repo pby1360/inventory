@@ -2,6 +2,8 @@ import Home from './pages/home';
 import Dashboard from './pages/dashboard/dashboard';
 import Place from './pages/place/place';
 import PlaceCreation from './pages/place/placeCreation';
+import PlaceDetail from './pages/place/placeDetail';
+import PlaceUser from 'pages/place/placeUser';
 import Area from './pages/area/area';
 import Inventory from './pages/inventory/inventory';
 import Item from './pages/item/item';
@@ -42,6 +44,22 @@ export default [
     label: '사업장 생성',
     path: '/place/creation',
     component: PlaceCreation,
+    isNavData: false,
+    icon: null
+  },
+  {
+    name: 'placeDetail',
+    label: '사업장 상세정보',
+    path: '/place/:placeId',
+    component: PlaceDetail,
+    isNavData: false,
+    icon: null
+  },
+  {
+    name: 'placeUser',
+    label: '사업장 사용자',
+    path: '/place/:placeId/users',
+    component: PlaceUser,
     isNavData: false,
     icon: null
   },
