@@ -20,4 +20,5 @@ public interface PlaceSerivce {
     void addUSer(PlaceUserDTO userDto) throws DuplicateException;
     void modifyPlaceUser(PlaceUserDTO userDto);
     void removeUser(Long placeUserId);
+    void updateUserStatus(Long placeUserId, String status);
 }

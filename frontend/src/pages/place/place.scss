@@ -7,20 +7,30 @@
     gap: 0.25rem;
 
     .place-item {
+      position: relative;
+      border: solid 1px #c8c8c8;
+      background-color: #fff;
+      border-radius: 5px;
+
+      display: flex;
+      flex-direction: column;
+
       &.selected {
         border: solid 2px #0D99FF;
       }
       &:hover {
         border: solid 1px #0D99FF;
       }
-      border: solid 1px #c8c8c8;
-      background-color: #fff;
-      border-radius: 5px;
+
+      &.invited {
+        background-color: rgba($color: #000000, $alpha: .4);
+      }
 
       max-width: 10rem;
-      // max-height: 15rem;
+      width: 10rem;
 
       .place-item-header {
+        flex: 1;
         padding: 0.5rem;
         display: flex;
         justify-content: space-between;
@@ -28,11 +38,14 @@
         .place-item-name {
           font-weight: bold;
         }
-        .icon-check {
-
+        .icon-bookmark {
+          svg {
+            cursor: pointer;
+          }
         }
       }
       .place-item-body {
+        flex: 5;
         padding: 0.5rem;
         .place-info {
           color: #333;
@@ -43,15 +56,43 @@
           white-space: nowrap; 		// 아래줄로 내려가는 것을 막기위해
           word-break:break-all;
           width: 9rem;
+          
+          > span {
+            margin-left: 0.25rem;
+          }
         }
       }
       .place-item-footer {
+        flex: 1;
         padding: 0.5rem;
         display: flex;
         justify-content: space-between;
-        // background-color: #eee;
-        // border-bottom-right-radius: 5px;
-        // border-bottom-left-radius: 5px;
+        
+        .icon-users {
+          cursor: pointer;
+
+          span {
+            margin-left: 0.25rem;
+          }
+        }
+        .icon-info {
+          cursor: pointer;
+        }
+      }
+
+      .place-item-overlap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        > button {
+          height: fit-content;
+        }
       }
     }
   }
@@ -103,6 +144,8 @@
       }
 
       > span {
+        margin: auto 0;
+
         &:nth-child(1) {
           flex: 0.5;
         }

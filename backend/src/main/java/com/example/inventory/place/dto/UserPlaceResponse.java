@@ -8,6 +8,8 @@ import lombok.Setter;
 @Setter
 @Builder
 public class UserPlaceResponse {
+
+    private Long placeUserId;
     private Long placeId;
     private String placeName;
     private String category;

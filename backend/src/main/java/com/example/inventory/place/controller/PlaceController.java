@@ -37,6 +37,7 @@ public class PlaceController {
                 .stream()
                 .map(placeUser -> UserPlaceResponse
                         .builder()
+                        .placeUserId(placeUser.getId())
                         .placeId(placeUser.getPlaceId())
                         .placeName(placeUser.getPlace().getName())
                         .category(placeUser.getPlace().getCategory())
@@ -95,6 +96,17 @@ public class PlaceController {
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+    }
+
+    @PutMapping("/{id}/users/{placeUserId}/accept")
+    public ResponseEntity acceptInvitation (@PathVariable Long id, @PathVariable Long placeUserId) {
+        try {
+            service.updateUserStatus(placeUserId, "inUse");
+            return ResponseEntity.status(HttpStatus.CREATED).body(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 

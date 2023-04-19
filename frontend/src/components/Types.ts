@@ -11,6 +11,7 @@ interface Place {
 };
 
 interface PlaceUser {
+  placeUserId: number;
   placeId: number;
   placeName: string;
   category: string;

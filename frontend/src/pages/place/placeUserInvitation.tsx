@@ -71,7 +71,7 @@ const PlaceUserInvitation = (props:Props) => {
 
   return (
     <Modal show={show} centered>
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title>사용자 정보 수정</Modal.Title>
       </Modal.Header>
       <Modal.Body>

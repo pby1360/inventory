@@ -148,6 +148,13 @@ public class PlaceServiceImpl implements PlaceSerivce {
         placeUserRepository.deleteById(placeUserId);
     }
 
+    @Override
+    public void updateUserStatus(Long placeUserId, String status) {
+        PlaceUser placeUser = placeUserRepository.findById(placeUserId).orElseThrow();
+        placeUser.updateStatus(status);
+        placeUserRepository.save(placeUser);
+    }
+
     private boolean isModifiable (String userId, Long placeId) {
         PlaceUser placeUser = placeUserRepository.findByUserIdAndPlaceId(userId, placeId);
 

@@ -50,4 +50,8 @@ public class PlaceUser extends BaseEntity {
         }
         return this;
     }
+
+    public void updateStatus (String status) {
+        this.status = UserPlaceStatus.of(status);
+    }
 }
