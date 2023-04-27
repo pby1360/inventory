@@ -1,3 +1,4 @@
+// login component
 div.login {
 
   width: 100%;
@@ -79,6 +80,7 @@ div.login {
   }
 }
 
+// join component
 div.join {
   width: 80rem;
   height: 90vh;
@@ -104,6 +106,8 @@ div.join {
 
   }
 }
+
+// loading component
 .loading {
   background-color: #0005;
   position: fixed;
@@ -134,8 +138,50 @@ div.join {
     left: 50%;
   }
 }
+
 @keyframes rotateImg {
   100% {
       transform: rotate(360deg);
+  }
+}
+
+// search component
+section.search {
+  background-color: #fff;
+  
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  display: flex;
+  box-shadow: #ccc 0px 2px 2px;
+  margin-top: 0.5rem;
+
+  .search-form {
+    width: 100%;
+    display: flex;
+
+    .search-item {
+
+      .rounded-input-icon {
+        background-color: #fff;
+        border-top-left-radius: 25rem;
+        border-bottom-left-radius: 25rem;
+      }
+
+      .rounded-input {
+        border-top-right-radius: 25rem;
+        border-bottom-right-radius: 25rem;
+        border-left: none;
+      }
+    }
+
+    .search-button {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      button {
+        width: 5rem;
+      }
+    }
   }
 }

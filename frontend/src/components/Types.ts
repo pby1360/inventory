@@ -32,4 +32,8 @@ interface User {
   createAt: string;
 }
 
-export type { Place, PlaceUser, User };
+type SearchType = {
+  [key: string]: string | number;
+}
+
+export type { Place, PlaceUser, User, SearchType };

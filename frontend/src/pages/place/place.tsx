@@ -155,7 +155,7 @@ const Place = () => {
   return (
     <Content className='place-list'>
       <ContentTopBar>
-        <p className='title'>사업장 목록</p>
+        <p className='title'>사업장 관리</p>
         <div className='buttons'>
           <Button onClick={toCreation}>생성</Button>
         </div>
