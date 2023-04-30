@@ -185,3 +185,14 @@ section.search {
     }
   }
 }
+
+section.table {
+  background-color: #fff;
+  
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  display: flex;
+  box-shadow: #ccc 0px 2px 2px;
+  margin-top: 0.5rem;
+}

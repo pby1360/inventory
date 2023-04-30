@@ -1,115 +1,63 @@
-2023-04-26 10:12:55.506  INFO 7404 --- [main] c.e.inventory.InventoryApplication       : Starting InventoryApplication using Java 11.0.11 on DESKTOP-HO3T745 with PID 7404 (C:\Users\user\eclipse-workspace\inventory\backend\target\classes started by user in C:\Users\user\eclipse-workspace\inventory\backend)
-2023-04-26 10:12:55.513  INFO 7404 --- [main] c.e.inventory.InventoryApplication       : No active profile set, falling back to 1 default profile: "default"
-2023-04-26 10:12:56.734  INFO 7404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-04-26 10:12:57.005  INFO 7404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 257 ms. Found 3 JPA repository interfaces.
-2023-04-26 10:12:57.825  INFO 7404 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-04-26 10:12:57.838  INFO 7404 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-04-26 10:12:57.838  INFO 7404 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
-2023-04-26 10:12:58.086  INFO 7404 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-04-26 10:12:58.087  INFO 7404 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2498 ms
-2023-04-26 10:12:58.268  INFO 7404 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-04-26 10:12:58.749  INFO 7404 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-04-26 10:12:58.806  INFO 7404 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-04-26 10:12:58.879  INFO 7404 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-04-26 10:12:59.194  INFO 7404 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-04-26 10:12:59.349  INFO 7404 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2023-04-26 10:13:00.243  INFO 7404 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-04-26 10:13:00.253  INFO 7404 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-04-26 10:13:00.609  INFO 7404 --- [main] c.e.inventory.security.JwtTokenProvider  : [init] JwtTokenProvider 내 secretKey 초기화 시작
-2023-04-26 10:13:00.610  INFO 7404 --- [main] c.e.inventory.security.JwtTokenProvider  : [init] JwtTokenProvider 내 secretKey 초기화 완료
-2023-04-26 10:13:00.670  WARN 7404 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-04-26 10:13:00.946  WARN 7404 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/v2/api-docs']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2023-04-26 10:13:00.948  INFO 7404 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/v2/api-docs']
-2023-04-26 10:13:00.948  WARN 7404 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/swagger-resources/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2023-04-26 10:13:00.949  INFO 7404 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/swagger-resources/**']
-2023-04-26 10:13:00.949  WARN 7404 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/swagger-ui.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2023-04-26 10:13:00.950  INFO 7404 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/swagger-ui.html']
-2023-04-26 10:13:00.950  WARN 7404 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/webjars/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2023-04-26 10:13:00.950  INFO 7404 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/webjars/**']
-2023-04-26 10:13:00.950  WARN 7404 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/swagger/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2023-04-26 10:13:00.951  INFO 7404 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/swagger/**']
-2023-04-26 10:13:00.951  WARN 7404 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/sign-api/exception']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2023-04-26 10:13:00.951  INFO 7404 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/sign-api/exception']
-2023-04-26 10:13:00.988  INFO 7404 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@53016c98, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@296a71df, org.springframework.security.web.context.SecurityContextPersistenceFilter@4a3383dc, org.springframework.security.web.header.HeaderWriterFilter@1e75af65, org.springframework.web.filter.CorsFilter@4db4431b, org.springframework.security.web.authentication.logout.LogoutFilter@361c4981, com.example.inventory.security.JwtAuthenticationFilter@52849956, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@47c15468, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1cb929a9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ab94a32, org.springframework.security.web.session.SessionManagementFilter@47eff554, org.springframework.security.web.access.ExceptionTranslationFilter@25a52a60, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@69d61a6f]
-2023-04-26 10:13:01.585  INFO 7404 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-04-26 10:13:01.596  INFO 7404 --- [main] c.e.inventory.InventoryApplication       : Started InventoryApplication in 6.76 seconds (JVM running for 8.622)
-2023-04-26 10:36:33.758  INFO 7404 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-04-26 10:36:33.759  INFO 7404 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-04-26 10:36:33.765  INFO 7404 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2023-04-26 10:36:33.820  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [resolveToken] HTTP 헤더에서 Token 값 추출
-2023-04-26 10:36:33.820  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [resolveToken] Request Host : http://localhost:3000 
-2023-04-26 10:36:33.820  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [resolveToken] HttpHeaders.AUTHORIZATION : null 
-2023-04-26 10:36:33.821  INFO 7404 --- [http-nio-8080-exec-1] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 추출 완료. token : null
-2023-04-26 10:36:33.821  INFO 7404 --- [http-nio-8080-exec-1] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 유효성 체크 시작
-2023-04-26 10:36:33.944  INFO 7404 --- [http-nio-8080-exec-1] c.e.i.auth.controller.AuthController     : :: signIn token R0WMXWSJOYXSfxM150OYihZslGYHpUUZR-0U_F4FCisMqAAAAYe7NIHl
-2023-04-26 10:36:34.504  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [createToken] 토큰 생성 시작
-2023-04-26 10:36:34.505  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : secret ? Y29tZXQyMDU5IQ==
-2023-04-26 10:36:34.543  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [createToken] 토큰 생성 완료
-2023-04-26 10:36:34.544  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [getExpiration] 토큰 만료시간 조회
-2023-04-26 10:36:34.561  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [getExpiration] 토큰 만료시간 조회 완료
-2023-04-26 10:36:34.562  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [getExpiration] 만료시간 : Wed Apr 26 11:36:34 KST 2023
-2023-04-26 10:36:56.024  INFO 7404 --- [http-nio-8080-exec-4] c.e.inventory.security.JwtTokenProvider  : [resolveToken] HTTP 헤더에서 Token 값 추출
-2023-04-26 10:36:56.025  INFO 7404 --- [http-nio-8080-exec-4] c.e.inventory.security.JwtTokenProvider  : [resolveToken] Request Host : http://localhost:3000 
-2023-04-26 10:36:56.025  INFO 7404 --- [http-nio-8080-exec-4] c.e.inventory.security.JwtTokenProvider  : [resolveToken] HttpHeaders.AUTHORIZATION : Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYnkxMzYwQGdtYWlsLmNvbSIsInJvbGVzIjpbXSwiaWF0IjoxNjgyNDcyOTk0LCJleHAiOjE2ODI0NzY1OTR9.I9xY_cgJ1mHxt2gpLeQBhE1-i1DPb2AWGVePe3kz01U 
-2023-04-26 10:36:56.025  INFO 7404 --- [http-nio-8080-exec-4] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 추출 완료. token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYnkxMzYwQGdtYWlsLmNvbSIsInJvbGVzIjpbXSwiaWF0IjoxNjgyNDcyOTk0LCJleHAiOjE2ODI0NzY1OTR9.I9xY_cgJ1mHxt2gpLeQBhE1-i1DPb2AWGVePe3kz01U
-2023-04-26 10:36:56.025  INFO 7404 --- [http-nio-8080-exec-4] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 유효성 체크 시작
-2023-04-26 10:36:56.025  INFO 7404 --- [http-nio-8080-exec-4] c.e.inventory.security.JwtTokenProvider  : [validateToken] 토큰 유효 체크 시작
-2023-04-26 10:36:56.026  INFO 7404 --- [http-nio-8080-exec-4] c.e.inventory.security.JwtTokenProvider  : [validateToken] 토큰 유효 체크 완료
-2023-04-26 10:36:56.027  INFO 7404 --- [http-nio-8080-exec-4] c.e.inventory.security.JwtTokenProvider  : [getAuthentication] 토큰 인증 정보 조회 시작
-2023-04-26 10:36:56.027  INFO 7404 --- [http-nio-8080-exec-4] c.e.inventory.security.JwtTokenProvider  : [getUsername] 토큰 기반 회원 구별 정보 추출
-2023-04-26 10:36:56.028  INFO 7404 --- [http-nio-8080-exec-4] c.e.inventory.security.JwtTokenProvider  : [getUsername] 토큰 기반 회원 구별 정보 추출 완료, info : pby1360@gmail.com
-2023-04-26 10:36:56.035  INFO 7404 --- [http-nio-8080-exec-4] c.e.inventory.security.JwtTokenProvider  : [getAuthentication] 토큰 인증 정보 조회 완료, UserDetails UserName : pby1360@gmail.com
-2023-04-26 10:36:56.036  INFO 7404 --- [http-nio-8080-exec-4] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 유효성 체크 완료
-2023-04-26 10:36:56.036  INFO 7404 --- [http-nio-8080-exec-4] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] getAuthorities : [] 
-2023-04-26 10:41:17.675  INFO 7404 --- [http-nio-8080-exec-7] c.e.inventory.security.JwtTokenProvider  : [resolveToken] HTTP 헤더에서 Token 값 추출
-2023-04-26 10:41:17.678  INFO 7404 --- [http-nio-8080-exec-7] c.e.inventory.security.JwtTokenProvider  : [resolveToken] Request Host : http://localhost:3000 
-2023-04-26 10:41:17.679  INFO 7404 --- [http-nio-8080-exec-7] c.e.inventory.security.JwtTokenProvider  : [resolveToken] HttpHeaders.AUTHORIZATION : Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYnkxMzYwQGdtYWlsLmNvbSIsInJvbGVzIjpbXSwiaWF0IjoxNjgyNDcyOTk0LCJleHAiOjE2ODI0NzY1OTR9.I9xY_cgJ1mHxt2gpLeQBhE1-i1DPb2AWGVePe3kz01U 
-2023-04-26 10:41:17.679  INFO 7404 --- [http-nio-8080-exec-7] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 추출 완료. token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYnkxMzYwQGdtYWlsLmNvbSIsInJvbGVzIjpbXSwiaWF0IjoxNjgyNDcyOTk0LCJleHAiOjE2ODI0NzY1OTR9.I9xY_cgJ1mHxt2gpLeQBhE1-i1DPb2AWGVePe3kz01U
-2023-04-26 10:41:17.679  INFO 7404 --- [http-nio-8080-exec-7] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 유효성 체크 시작
-2023-04-26 10:41:17.679  INFO 7404 --- [http-nio-8080-exec-7] c.e.inventory.security.JwtTokenProvider  : [validateToken] 토큰 유효 체크 시작
-2023-04-26 10:41:17.681  INFO 7404 --- [http-nio-8080-exec-7] c.e.inventory.security.JwtTokenProvider  : [validateToken] 토큰 유효 체크 완료
-2023-04-26 10:41:17.681  INFO 7404 --- [http-nio-8080-exec-7] c.e.inventory.security.JwtTokenProvider  : [getAuthentication] 토큰 인증 정보 조회 시작
-2023-04-26 10:41:17.681  INFO 7404 --- [http-nio-8080-exec-7] c.e.inventory.security.JwtTokenProvider  : [getUsername] 토큰 기반 회원 구별 정보 추출
-2023-04-26 10:41:17.682  INFO 7404 --- [http-nio-8080-exec-7] c.e.inventory.security.JwtTokenProvider  : [getUsername] 토큰 기반 회원 구별 정보 추출 완료, info : pby1360@gmail.com
-2023-04-26 10:41:17.695  INFO 7404 --- [http-nio-8080-exec-7] c.e.inventory.security.JwtTokenProvider  : [getAuthentication] 토큰 인증 정보 조회 완료, UserDetails UserName : pby1360@gmail.com
-2023-04-26 10:41:17.696  INFO 7404 --- [http-nio-8080-exec-7] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 유효성 체크 완료
-2023-04-26 10:41:17.696  INFO 7404 --- [http-nio-8080-exec-7] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] getAuthorities : [] 
-2023-04-26 10:42:22.315  INFO 7404 --- [http-nio-8080-exec-10] c.e.inventory.security.JwtTokenProvider  : [resolveToken] HTTP 헤더에서 Token 값 추출
-2023-04-26 10:42:22.316  INFO 7404 --- [http-nio-8080-exec-10] c.e.inventory.security.JwtTokenProvider  : [resolveToken] Request Host : http://localhost:3000 
-2023-04-26 10:42:22.316  INFO 7404 --- [http-nio-8080-exec-10] c.e.inventory.security.JwtTokenProvider  : [resolveToken] HttpHeaders.AUTHORIZATION : Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYnkxMzYwQGdtYWlsLmNvbSIsInJvbGVzIjpbXSwiaWF0IjoxNjgyNDcyOTk0LCJleHAiOjE2ODI0NzY1OTR9.I9xY_cgJ1mHxt2gpLeQBhE1-i1DPb2AWGVePe3kz01U 
-2023-04-26 10:42:22.316  INFO 7404 --- [http-nio-8080-exec-10] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 추출 완료. token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYnkxMzYwQGdtYWlsLmNvbSIsInJvbGVzIjpbXSwiaWF0IjoxNjgyNDcyOTk0LCJleHAiOjE2ODI0NzY1OTR9.I9xY_cgJ1mHxt2gpLeQBhE1-i1DPb2AWGVePe3kz01U
-2023-04-26 10:42:22.316  INFO 7404 --- [http-nio-8080-exec-10] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 유효성 체크 시작
-2023-04-26 10:42:22.316  INFO 7404 --- [http-nio-8080-exec-10] c.e.inventory.security.JwtTokenProvider  : [validateToken] 토큰 유효 체크 시작
-2023-04-26 10:42:22.317  INFO 7404 --- [http-nio-8080-exec-10] c.e.inventory.security.JwtTokenProvider  : [validateToken] 토큰 유효 체크 완료
-2023-04-26 10:42:22.317  INFO 7404 --- [http-nio-8080-exec-10] c.e.inventory.security.JwtTokenProvider  : [getAuthentication] 토큰 인증 정보 조회 시작
-2023-04-26 10:42:22.317  INFO 7404 --- [http-nio-8080-exec-10] c.e.inventory.security.JwtTokenProvider  : [getUsername] 토큰 기반 회원 구별 정보 추출
-2023-04-26 10:42:22.318  INFO 7404 --- [http-nio-8080-exec-10] c.e.inventory.security.JwtTokenProvider  : [getUsername] 토큰 기반 회원 구별 정보 추출 완료, info : pby1360@gmail.com
-2023-04-26 10:42:22.324  INFO 7404 --- [http-nio-8080-exec-10] c.e.inventory.security.JwtTokenProvider  : [getAuthentication] 토큰 인증 정보 조회 완료, UserDetails UserName : pby1360@gmail.com
-2023-04-26 10:42:22.324  INFO 7404 --- [http-nio-8080-exec-10] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 유효성 체크 완료
-2023-04-26 10:42:22.324  INFO 7404 --- [http-nio-8080-exec-10] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] getAuthorities : [] 
-2023-04-26 10:42:34.266  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [resolveToken] HTTP 헤더에서 Token 값 추출
-2023-04-26 10:42:34.267  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [resolveToken] Request Host : http://localhost:3000 
-2023-04-26 10:42:34.267  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [resolveToken] HttpHeaders.AUTHORIZATION : Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYnkxMzYwQGdtYWlsLmNvbSIsInJvbGVzIjpbXSwiaWF0IjoxNjgyNDcyOTk0LCJleHAiOjE2ODI0NzY1OTR9.I9xY_cgJ1mHxt2gpLeQBhE1-i1DPb2AWGVePe3kz01U 
-2023-04-26 10:42:34.267  INFO 7404 --- [http-nio-8080-exec-1] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 추출 완료. token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYnkxMzYwQGdtYWlsLmNvbSIsInJvbGVzIjpbXSwiaWF0IjoxNjgyNDcyOTk0LCJleHAiOjE2ODI0NzY1OTR9.I9xY_cgJ1mHxt2gpLeQBhE1-i1DPb2AWGVePe3kz01U
-2023-04-26 10:42:34.268  INFO 7404 --- [http-nio-8080-exec-1] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 유효성 체크 시작
-2023-04-26 10:42:34.268  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [validateToken] 토큰 유효 체크 시작
-2023-04-26 10:42:34.269  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [validateToken] 토큰 유효 체크 완료
-2023-04-26 10:42:34.270  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [getAuthentication] 토큰 인증 정보 조회 시작
-2023-04-26 10:42:34.271  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [getUsername] 토큰 기반 회원 구별 정보 추출
-2023-04-26 10:42:34.271  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [getUsername] 토큰 기반 회원 구별 정보 추출 완료, info : pby1360@gmail.com
-2023-04-26 10:42:34.277  INFO 7404 --- [http-nio-8080-exec-1] c.e.inventory.security.JwtTokenProvider  : [getAuthentication] 토큰 인증 정보 조회 완료, UserDetails UserName : pby1360@gmail.com
-2023-04-26 10:42:34.277  INFO 7404 --- [http-nio-8080-exec-1] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 유효성 체크 완료
-2023-04-26 10:42:34.277  INFO 7404 --- [http-nio-8080-exec-1] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] getAuthorities : [] 
-2023-04-26 10:44:50.818  INFO 7404 --- [http-nio-8080-exec-5] c.e.inventory.security.JwtTokenProvider  : [resolveToken] HTTP 헤더에서 Token 값 추출
-2023-04-26 10:44:50.818  INFO 7404 --- [http-nio-8080-exec-5] c.e.inventory.security.JwtTokenProvider  : [resolveToken] Request Host : http://localhost:3000 
-2023-04-26 10:44:50.818  INFO 7404 --- [http-nio-8080-exec-5] c.e.inventory.security.JwtTokenProvider  : [resolveToken] HttpHeaders.AUTHORIZATION : Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYnkxMzYwQGdtYWlsLmNvbSIsInJvbGVzIjpbXSwiaWF0IjoxNjgyNDcyOTk0LCJleHAiOjE2ODI0NzY1OTR9.I9xY_cgJ1mHxt2gpLeQBhE1-i1DPb2AWGVePe3kz01U 
-2023-04-26 10:44:50.819  INFO 7404 --- [http-nio-8080-exec-5] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 추출 완료. token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYnkxMzYwQGdtYWlsLmNvbSIsInJvbGVzIjpbXSwiaWF0IjoxNjgyNDcyOTk0LCJleHAiOjE2ODI0NzY1OTR9.I9xY_cgJ1mHxt2gpLeQBhE1-i1DPb2AWGVePe3kz01U
-2023-04-26 10:44:50.820  INFO 7404 --- [http-nio-8080-exec-5] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 유효성 체크 시작
-2023-04-26 10:44:50.821  INFO 7404 --- [http-nio-8080-exec-5] c.e.inventory.security.JwtTokenProvider  : [validateToken] 토큰 유효 체크 시작
-2023-04-26 10:44:50.823  INFO 7404 --- [http-nio-8080-exec-5] c.e.inventory.security.JwtTokenProvider  : [validateToken] 토큰 유효 체크 완료
-2023-04-26 10:44:50.823  INFO 7404 --- [http-nio-8080-exec-5] c.e.inventory.security.JwtTokenProvider  : [getAuthentication] 토큰 인증 정보 조회 시작
-2023-04-26 10:44:50.823  INFO 7404 --- [http-nio-8080-exec-5] c.e.inventory.security.JwtTokenProvider  : [getUsername] 토큰 기반 회원 구별 정보 추출
-2023-04-26 10:44:50.824  INFO 7404 --- [http-nio-8080-exec-5] c.e.inventory.security.JwtTokenProvider  : [getUsername] 토큰 기반 회원 구별 정보 추출 완료, info : pby1360@gmail.com
-2023-04-26 10:44:50.829  INFO 7404 --- [http-nio-8080-exec-5] c.e.inventory.security.JwtTokenProvider  : [getAuthentication] 토큰 인증 정보 조회 완료, UserDetails UserName : pby1360@gmail.com
-2023-04-26 10:44:50.829  INFO 7404 --- [http-nio-8080-exec-5] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 유효성 체크 완료
-2023-04-26 10:44:50.829  INFO 7404 --- [http-nio-8080-exec-5] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] getAuthorities : [] 
+2023-04-30 15:38:53.425  INFO 16124 --- [main] c.e.inventory.InventoryApplication       : Starting InventoryApplication using Java 11.0.11 on DESKTOP-HO3T745 with PID 16124 (C:\Users\user\eclipse-workspace\inventory\backend\target\classes started by user in C:\Users\user\eclipse-workspace\inventory\backend)
+2023-04-30 15:38:53.431  INFO 16124 --- [main] c.e.inventory.InventoryApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-04-30 15:38:54.386  INFO 16124 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-30 15:38:54.487  INFO 16124 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 3 JPA repository interfaces.
+2023-04-30 15:38:55.203  INFO 16124 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-30 15:38:55.216  INFO 16124 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-30 15:38:55.217  INFO 16124 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-04-30 15:38:55.440  INFO 16124 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-30 15:38:55.441  INFO 16124 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1955 ms
+2023-04-30 15:38:55.621  INFO 16124 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-30 15:38:56.226  INFO 16124 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-30 15:38:56.286  INFO 16124 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-30 15:38:56.355  INFO 16124 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-04-30 15:38:56.551  INFO 16124 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-30 15:38:56.689  INFO 16124 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-04-30 15:38:57.887  INFO 16124 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-30 15:38:57.903  INFO 16124 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-30 15:38:58.303  INFO 16124 --- [main] c.e.inventory.security.JwtTokenProvider  : [init] JwtTokenProvider 내 secretKey 초기화 시작
+2023-04-30 15:38:58.304  INFO 16124 --- [main] c.e.inventory.security.JwtTokenProvider  : [init] JwtTokenProvider 내 secretKey 초기화 완료
+2023-04-30 15:38:58.381  WARN 16124 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-30 15:38:58.688  WARN 16124 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/v2/api-docs']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-04-30 15:38:58.689  INFO 16124 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/v2/api-docs']
+2023-04-30 15:38:58.689  WARN 16124 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/swagger-resources/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-04-30 15:38:58.690  INFO 16124 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/swagger-resources/**']
+2023-04-30 15:38:58.690  WARN 16124 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/swagger-ui.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-04-30 15:38:58.690  INFO 16124 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/swagger-ui.html']
+2023-04-30 15:38:58.690  WARN 16124 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/webjars/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-04-30 15:38:58.690  INFO 16124 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/webjars/**']
+2023-04-30 15:38:58.691  WARN 16124 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/swagger/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-04-30 15:38:58.691  INFO 16124 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/swagger/**']
+2023-04-30 15:38:58.691  WARN 16124 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/sign-api/exception']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-04-30 15:38:58.692  INFO 16124 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/sign-api/exception']
+2023-04-30 15:38:58.733  INFO 16124 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1756a471, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2190508d, org.springframework.security.web.context.SecurityContextPersistenceFilter@3efb863c, org.springframework.security.web.header.HeaderWriterFilter@591ba330, org.springframework.web.filter.CorsFilter@70b630d, org.springframework.security.web.authentication.logout.LogoutFilter@758d0555, com.example.inventory.security.JwtAuthenticationFilter@72e1e587, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@483fe83a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@48697181, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5036a286, org.springframework.security.web.session.SessionManagementFilter@3fda8dae, org.springframework.security.web.access.ExceptionTranslationFilter@9fc2f89, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@50628080]
+2023-04-30 15:38:59.265  INFO 16124 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-30 15:38:59.275  INFO 16124 --- [main] c.e.inventory.InventoryApplication       : Started InventoryApplication in 6.478 seconds (JVM running for 8.213)
+2023-04-30 15:39:00.234  INFO 16124 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-30 15:39:00.240  INFO 16124 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-30 15:39:00.264  INFO 16124 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-04-30 15:39:00.318  INFO 16124 --- [http-nio-8080-exec-3] c.e.inventory.security.JwtTokenProvider  : [resolveToken] HTTP 헤더에서 Token 값 추출
+2023-04-30 15:39:00.320  INFO 16124 --- [http-nio-8080-exec-3] c.e.inventory.security.JwtTokenProvider  : [resolveToken] Request Host : http://localhost:3000 
+2023-04-30 15:39:00.320  INFO 16124 --- [http-nio-8080-exec-3] c.e.inventory.security.JwtTokenProvider  : [resolveToken] HttpHeaders.AUTHORIZATION : null 
+2023-04-30 15:39:00.320  INFO 16124 --- [http-nio-8080-exec-3] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 추출 완료. token : null
+2023-04-30 15:39:00.321  INFO 16124 --- [http-nio-8080-exec-3] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 유효성 체크 시작
+2023-04-30 15:39:00.466  INFO 16124 --- [http-nio-8080-exec-3] c.e.i.auth.controller.AuthController     : :: signIn token t5go8ihy3X4g9cyxtXSlnKajCNqpoH9aZAO3BykNCj11WwAAAYfQ4tgI
+2023-04-30 15:39:01.118  INFO 16124 --- [http-nio-8080-exec-3] c.e.inventory.security.JwtTokenProvider  : [createToken] 토큰 생성 시작
+2023-04-30 15:39:01.118  INFO 16124 --- [http-nio-8080-exec-3] c.e.inventory.security.JwtTokenProvider  : secret ? Y29tZXQyMDU5IQ==
+2023-04-30 15:39:01.170  INFO 16124 --- [http-nio-8080-exec-3] c.e.inventory.security.JwtTokenProvider  : [createToken] 토큰 생성 완료
+2023-04-30 15:39:01.171  INFO 16124 --- [http-nio-8080-exec-3] c.e.inventory.security.JwtTokenProvider  : [getExpiration] 토큰 만료시간 조회
+2023-04-30 15:39:01.197  INFO 16124 --- [http-nio-8080-exec-3] c.e.inventory.security.JwtTokenProvider  : [getExpiration] 토큰 만료시간 조회 완료
+2023-04-30 15:39:01.198  INFO 16124 --- [http-nio-8080-exec-3] c.e.inventory.security.JwtTokenProvider  : [getExpiration] 만료시간 : Sun Apr 30 16:39:01 KST 2023
+2023-04-30 15:39:02.962  INFO 16124 --- [http-nio-8080-exec-2] c.e.inventory.security.JwtTokenProvider  : [resolveToken] HTTP 헤더에서 Token 값 추출
+2023-04-30 15:39:02.963  INFO 16124 --- [http-nio-8080-exec-2] c.e.inventory.security.JwtTokenProvider  : [resolveToken] Request Host : http://localhost:3000 
+2023-04-30 15:39:02.963  INFO 16124 --- [http-nio-8080-exec-2] c.e.inventory.security.JwtTokenProvider  : [resolveToken] HttpHeaders.AUTHORIZATION : Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYnkxMzYwQGdtYWlsLmNvbSIsInJvbGVzIjpbXSwiaWF0IjoxNjgyODM2NzQxLCJleHAiOjE2ODI4NDAzNDF9.moJAX7jCtdaffM9YWiOK2_bw8MxTYCrsvKUh48owSYM 
+2023-04-30 15:39:02.964  INFO 16124 --- [http-nio-8080-exec-2] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 추출 완료. token : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYnkxMzYwQGdtYWlsLmNvbSIsInJvbGVzIjpbXSwiaWF0IjoxNjgyODM2NzQxLCJleHAiOjE2ODI4NDAzNDF9.moJAX7jCtdaffM9YWiOK2_bw8MxTYCrsvKUh48owSYM
+2023-04-30 15:39:02.965  INFO 16124 --- [http-nio-8080-exec-2] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 유효성 체크 시작
+2023-04-30 15:39:02.965  INFO 16124 --- [http-nio-8080-exec-2] c.e.inventory.security.JwtTokenProvider  : [validateToken] 토큰 유효 체크 시작
+2023-04-30 15:39:02.967  INFO 16124 --- [http-nio-8080-exec-2] c.e.inventory.security.JwtTokenProvider  : [validateToken] 토큰 유효 체크 완료
+2023-04-30 15:39:02.969  INFO 16124 --- [http-nio-8080-exec-2] c.e.inventory.security.JwtTokenProvider  : [getAuthentication] 토큰 인증 정보 조회 시작
+2023-04-30 15:39:02.970  INFO 16124 --- [http-nio-8080-exec-2] c.e.inventory.security.JwtTokenProvider  : [getUsername] 토큰 기반 회원 구별 정보 추출
+2023-04-30 15:39:02.970  INFO 16124 --- [http-nio-8080-exec-2] c.e.inventory.security.JwtTokenProvider  : [getUsername] 토큰 기반 회원 구별 정보 추출 완료, info : pby1360@gmail.com
+2023-04-30 15:39:02.979  INFO 16124 --- [http-nio-8080-exec-2] c.e.inventory.security.JwtTokenProvider  : [getAuthentication] 토큰 인증 정보 조회 완료, UserDetails UserName : pby1360@gmail.com
+2023-04-30 15:39:02.979  INFO 16124 --- [http-nio-8080-exec-2] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] token 값 유효성 체크 완료
+2023-04-30 15:39:02.980  INFO 16124 --- [http-nio-8080-exec-2] c.e.i.security.JwtAuthenticationFilter   : [doFilterInternal] getAuthorities : [] 
