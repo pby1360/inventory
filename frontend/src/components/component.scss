@@ -178,7 +178,7 @@ section.search {
     .search-button {
       display: flex;
       flex-direction: column;
-      justify-content: end;
+      justify-content: flex-end;
       button {
         width: 5rem;
       }
@@ -186,13 +186,77 @@ section.search {
   }
 }
 
-section.table {
+section.custom-table {
   background-color: #fff;
   
   width: 100%;
-  padding: 0.25rem 0.5rem;
+  padding: 1rem 1rem;
   border-radius: 5px;
   display: flex;
   box-shadow: #ccc 0px 2px 2px;
   margin-top: 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+
+  .custom-table-wrapper {
+    overflow-x: auto;
+    table {
+      width: 100%;
+  
+      thead {
+  
+        tr {
+          border-bottom: solid 2px #e8e8e8;
+          padding-bottom: 0.5rem;
+        }
+      }
+  
+      tbody {
+  
+        tr {
+          border-bottom: solid 1px #e8e8e8;
+          padding: 0.25rem;
+  
+          &:hover {
+            background-color: rgba($color: #004AAD, $alpha: 0.2);
+          }
+  
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+      
+      
+      tr {
+        display: flex;
+        
+        th, td {
+          flex: 1;
+          font-size: 0.9rem;
+  
+          &.index {
+            flex: 1;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  .custom-table-footer {
+
+    .total {
+      font-weight: bold;
+      font-size: 0.8rem;
+      margin-top: 1rem;
+    }
+    .pagination {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+  }
 }
