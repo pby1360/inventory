@@ -56,7 +56,7 @@ const SignIn = () => {
   }
 
   const loginWithKakao = () => {
-    setLoading(true);
+    // setLoading(true);
     Kakao.Auth.login({
       success: function(auth:any) {
         authService.loginWithKakao(auth.access_token)
@@ -79,7 +79,8 @@ const SignIn = () => {
           }
           setOpenModal(true);
 
-        }).finally(() => setLoading(false));
+        });
+        // .finally(() => setLoading(false));
       },
     })
   }
