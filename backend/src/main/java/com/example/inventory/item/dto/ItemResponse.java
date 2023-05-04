@@ -1,20 +1,31 @@
 package com.example.inventory.item.dto;
 
+import com.example.inventory.common.enums.ItemType;
+import com.example.inventory.item.entity.Item;
+
+import java.time.format.DateTimeFormatter;
+
 public class ItemResponse {
 
     private Long id;
     private String name;
     private Long placeId;
     private String placeName;
-    private int type;
+    private String type;
     private String unit;
     private int price;
     private String spec;
-    private String createdAt;
-    private String createdBy;
-    private String modifidAt;
-    private String modifidBy;
-    private String remark;
+
+    public ItemResponse(Long id, String name, Long placeId, String placeName, String type, String unit, int price, String spec) {
+        this.id = id;
+        this.name = name;
+        this.placeId = placeId;
+        this.placeName = placeName;
+        this.type = type;
+        this.unit = unit;
+        this.price = price;
+        this.spec = spec;
+    }
 
     public Long getId() {
         return id;
@@ -56,46 +67,6 @@ public class ItemResponse {
         this.spec = spec;
     }
 
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public String getModifidAt() {
-        return modifidAt;
-    }
-
-    public void setModifidAt(String modifidAt) {
-        this.modifidAt = modifidAt;
-    }
-
-    public String getModifidBy() {
-        return modifidBy;
-    }
-
-    public void setModifidBy(String modifidBy) {
-        this.modifidBy = modifidBy;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
     public Long getPlaceId() {
         return placeId;
     }
@@ -112,11 +83,15 @@ public class ItemResponse {
         this.placeName = placeName;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
+    }
+
+    public static ItemResponse toDto(Item item) {
+        return new ItemResponse(item.getId(), item.getName(), item.getPlace().getId(), item.getPlace().getName(), item.getType().getName(), item.getUnit(), item.getPrice(), item.getSpec());
     }
 }

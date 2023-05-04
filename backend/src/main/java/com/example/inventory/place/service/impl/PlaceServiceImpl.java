@@ -126,7 +126,6 @@ public class PlaceServiceImpl implements PlaceSerivce {
 
     @Override
     public void addUSer(PlaceUserDTO userDto) throws DuplicateException {
-        log.info(userDto.toString());
         if(!ObjectUtils.isEmpty(placeUserRepository.findByUserIdAndPlaceId(userDto.getUserId(), userDto.getPlaceId()))) {
             throw new DuplicateException("이미 등록된 사용자. 사업장 id : " + userDto.getPlaceId() + ", 사용자 id : " + userDto.getUserId());
         }

@@ -15,18 +15,22 @@ type Data = {
 
 type PropsType = {
   data: Data[],
-  column: Column[]
+  column: Column[],
+  onSelect: Function
 }
 
 type Pagination = {
   totalPage: number,
   currentPage: number
 }
-const Table = ({data, column}: PropsType) => {
+const Table = ({data, column, onSelect}: PropsType) => {
+  
   const defaultPage:Pagination = {
     totalPage: 1,
     currentPage: 1
   }
+
+  const [ selectedRow, setSelectedRow] = useState({});
 
   const [tableData, setTableData] = useState<Data[]>([]);
   const [pageData, setPageData] = useState<Data[]>([]);
@@ -42,10 +46,8 @@ const Table = ({data, column}: PropsType) => {
       setTableColumn(column);
     }
     const totalPage = data.length % 15 === 0 ? data.length / 15 : Math.floor(data.length / 15)  + 1;
-    console.log(data.length);
-    console.log(totalPage);
     setPagination({totalPage: totalPage, currentPage: 1});
-  }, [tableData]);
+  }, [data]);
 
   const createPageButtons = () => {
     let buttons = [];
@@ -87,6 +89,12 @@ const Table = ({data, column}: PropsType) => {
     const start = 15 * (pageNumber - 1);
     const end = start + 15;
     setPageData(tableData.slice(start, end));
+    setSelectedRow({});
+  }
+
+  const onSelectRow = (row:any) => {
+    setSelectedRow(row);
+    onSelect(row);
   }
 
   return (
@@ -100,12 +108,12 @@ const Table = ({data, column}: PropsType) => {
             </tr>
           </thead>
           <tbody>
-            {pageData.map((row,index) =>
-               <tr key={index}>
+            {data.length > 0 ? pageData.map((row,index) =>
+               <tr key={index} onClick={() => onSelectRow(row)} className={selectedRow === row ? 'selected' : ''}>
                 <td className='index'>{index + 1}</td>
                 {tableColumn.map(col => <td key={col.field} style={{flex:col.width}}>{row[col.field]}</td>)}
                </tr>
-              )
+              ) : <tr className='empty'><td rowSpan={tableColumn.length + 1}>데이터가 없습니다</td></tr>
             }
           </tbody>
         </table>
@@ -113,7 +121,7 @@ const Table = ({data, column}: PropsType) => {
       <div className='custom-table-footer'>
         <div className='total'>Total {data.length}</div>
         <div className='pagination'>
-          {createPageButtons()}
+          {data.length > 0 && createPageButtons()}
         </div>
       </div>
     </section>
