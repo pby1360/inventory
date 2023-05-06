@@ -11,8 +11,11 @@ import { axios } from 'components/CustomAxios';
 import './item.scss';
 
 import { SearchType } from 'components/Types';
+import { useNavigate } from 'react-router-dom';
 
 const Item = () => {
+
+  const navigate = useNavigate();
 
   let selectedRow = {};
 
@@ -97,7 +100,7 @@ const Item = () => {
     }
   ];
 
-  const toCreation = () => console.log('toCreation');
+  const toCreation = () => navigate('/item/creation');
   
   const toDetail = () => console.log(selectedRow);
 

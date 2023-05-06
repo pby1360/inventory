@@ -7,6 +7,8 @@ import PlaceUser from 'pages/place/placeUser';
 import Area from './pages/area/area';
 import Inventory from './pages/inventory/inventory';
 import Item from './pages/item/item';
+import ItemCreation from './pages/item/itemCreation';
+// import ItemDetail from './pages/item/itemDetail';
 import NotFound from './pages/NotFound';
 import SignIn from './components/signIn';
 import SignUp from './components/signUp';
@@ -79,6 +81,22 @@ export default [
     isNavData: true,
     icon: BsBox,
   },
+  {
+    name: 'itemCreation',
+    label: '품목 생성',
+    path: '/item/creation',
+    component: ItemCreation,
+    isNavData: false,
+    icon: null
+  },
+  // {
+  //   name: 'itemDetail',
+  //   label: '품목 상세정보',
+  //   path: '/item/:itemId',
+  //   component: ItemDetail,
+  //   isNavData: false,
+  //   icon: null
+  // },
   {
     name: 'inventory',
     label: '재고',
