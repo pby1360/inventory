@@ -35,7 +35,7 @@ const Item = () => {
     },
     {
       field: 'name',
-      label: '품목명',
+      label: '품명',
       width: 3
     },
     {
@@ -94,7 +94,7 @@ const Item = () => {
     },
     {
       field: 'itemName',
-      label: '품목명',
+      label: '품명',
       type: 'text',
       width: 3
     }

@@ -32,8 +32,23 @@ interface User {
   createAt: string;
 }
 
+interface Item {
+  id?: number;
+  placeId: number | undefined;
+  name: string;
+  type: string;
+  price: number | undefined;
+  unit: string;
+  spec: string;
+  createdAt?: string;
+  createdBy?: string;
+  modifiedAt?: string;
+  modifiedBy?: string;
+  remark: string;
+}
+
 type SearchType = {
   [key: string]: string | number;
 }
 
-export type { Place, PlaceUser, User, SearchType };
+export type { Place, PlaceUser, User, Item, SearchType };
