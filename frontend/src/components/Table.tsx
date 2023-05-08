@@ -6,7 +6,8 @@ import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 type Column = {
   field: string,
   label: string,
-  width: number
+  width: number,
+  type: string,
 }
 
 type Data = {
@@ -47,7 +48,7 @@ const Table = ({data, column, onSelect}: PropsType) => {
     }
     const totalPage = data.length % 15 === 0 ? data.length / 15 : Math.floor(data.length / 15)  + 1;
     setPagination({totalPage: totalPage, currentPage: 1});
-  }, [data]);
+  }, [data, column]);
 
   const createPageButtons = () => {
     let buttons = [];
@@ -111,7 +112,7 @@ const Table = ({data, column, onSelect}: PropsType) => {
             {data.length > 0 ? pageData.map((row,index) =>
                <tr key={index} onClick={() => onSelectRow(row)} className={selectedRow === row ? 'selected' : ''}>
                 <td className='index'>{index + 1}</td>
-                {tableColumn.map(col => <td key={col.field} style={{flex:col.width}}>{row[col.field]}</td>)}
+                {tableColumn.map(col => <td key={col.field} style={{flex:col.width}}>{col.type === 'number' ? row[col.field].toLocaleString() : row[col.field]}</td>)}
                </tr>
               ) : <tr className='empty'><td rowSpan={tableColumn.length + 1}>데이터가 없습니다</td></tr>
             }

@@ -2,6 +2,7 @@ package com.example.inventory.item.entity;
 
 import com.example.inventory.common.entity.BaseEntity;
 import com.example.inventory.common.enums.ItemType;
+import com.example.inventory.item.dto.ItemDTO;
 import com.example.inventory.place.entity.Place;
 import lombok.*;
 
@@ -34,5 +35,14 @@ public class Item extends BaseEntity {
         this.unit = unit;
         this.spec = spec;
         this.remark = remark;
+    }
+
+    public void modify (ItemDTO dto) {
+        this.name = dto.getName();
+        this.type = ItemType.of(dto.getType());
+        this.price = dto.getPrice();
+        this.unit = dto.getUnit();
+        this.spec = dto.getSpec();
+        this.remark = dto.getRemark();
     }
 }

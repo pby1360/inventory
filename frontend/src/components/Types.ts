@@ -32,7 +32,7 @@ interface User {
   createAt: string;
 }
 
-interface Item {
+interface ItemType {
   id?: number;
   placeId: number | undefined;
   name: string;
@@ -51,4 +51,4 @@ type SearchType = {
   [key: string]: string | number;
 }
 
-export type { Place, PlaceUser, User, Item, SearchType };
+export type { Place, PlaceUser, User, ItemType, SearchType };

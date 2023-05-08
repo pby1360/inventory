@@ -11,12 +11,12 @@ import Modal from 'components/CustomModal';
 // import auth from 'components/AuthService';
 import { axios } from 'components/CustomAxios';
 
-import { Item, PlaceUser } from 'components/Types'
+import { ItemType, PlaceUser } from 'components/Types'
 
 const ItemCreation = () => {
   
   const navigate = useNavigate();
-  const [formData, setFormData] = useState<Item>({
+  const [formData, setFormData] = useState<ItemType>({
     placeId: undefined,
     name: '',
     type: '',
@@ -37,14 +37,14 @@ const ItemCreation = () => {
     callback: () => {},
   })
 
-  const getComboData = async () => {
+  const getPlaceList = async () => {
     await axios.get('/api/places').then((response) => {
       setPlaceList(response.data);
     }).catch((error) => console.log(error));
   }
 
   useEffect(() => {
-    getComboData();
+    getPlaceList();
   }, []);
 
   const successCallback = () => navigate('/item');
@@ -63,17 +63,8 @@ const ItemCreation = () => {
     
     e.preventDefault();
     
-    // if (auth.isExpired()) {
-    //   setModalProps({
-    //     show: true,
-    //     title: '로그인 만료',
-    //     message: '로그인이 만료 되었습니다. 다시 로그인하세요.',
-    //     callback: () => expiredCallback(),
-    //   });
-    //   return;
-    // }
-
     setLoading(true);
+
     await axios.post('/api/items', formData)
       .then((response:any) => {
         
@@ -114,6 +105,13 @@ const ItemCreation = () => {
       </ContentTopBar>
       <Form id='itemForm' className='d-grid p-3 form mt-1' onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
+          <Form.Label><strong>사업장 *</strong></Form.Label>
+          <Form.Control as="select" required name="placeId" value={formData.placeId} onChange={handleChange}>
+            <option value="">선택하세요</option>
+            {placeList.map(item => <option key={item.placeId} value={item.placeId}>{item.placeName}</option>)}
+          </Form.Control>
+        </Form.Group>
+        <Form.Group className="mb-3">
           <Form.Label><strong>품명 *</strong></Form.Label>
           <Form.Control as="input" minLength={2} required name="name" value={formData.name} onChange={handleChange} />
         </Form.Group>
@@ -128,15 +126,8 @@ const ItemCreation = () => {
           </Form.Control>
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label><strong>사업장 *</strong></Form.Label>
-          <Form.Control as="select" required name="placeId" value={formData.placeId} onChange={handleChange}>
-            <option value="">선택하세요</option>
-            {placeList.map(item => <option key={item.placeId} value={item.placeId}>{item.placeName}</option>)}
-          </Form.Control>
-        </Form.Group>
-        <Form.Group className="mb-3">
           <Form.Label><strong>가격</strong></Form.Label>
-          <Form.Control as="input" name="price" value={formData.price} onChange={handleChange} />
+          <Form.Control as="input" type="number" name="price" value={formData.price} onChange={handleChange} />
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label><strong>단위</strong></Form.Label>

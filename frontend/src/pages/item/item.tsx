@@ -10,14 +10,23 @@ import { axios } from 'components/CustomAxios';
 
 import './item.scss';
 
-import { SearchType } from 'components/Types';
+import { ItemType, SearchType } from 'components/Types';
 import { useNavigate } from 'react-router-dom';
 
 const Item = () => {
 
   const navigate = useNavigate();
 
-  let selectedRow = {};
+  const [selectedRow, setSelectedRow] = useState<ItemType>({
+    id: undefined,
+    placeId: undefined,
+    name: '',
+    type: '',
+    price: 0,
+    unit: '',
+    spec: '',
+    remark: '',
+  });
 
   interface Place {
     placeId: number;
@@ -31,32 +40,38 @@ const Item = () => {
     {
       field: 'placeName',
       label: '사업장',
-      width: 2
+      width: 2,
+      type: 'text',
     },
     {
       field: 'name',
       label: '품명',
-      width: 3
+      width: 3,
+      type: 'text',
     },
     {
       field: 'type',
       label: '품목 유형',
-      width: 1
+      width: 1,
+      type: 'text',
     },
     {
       field: 'unit',
       label: '단위',
-      width: 1
+      width: 1,
+      type: 'text',
     },
     {
       field: 'price',
       label: '단가',
-      width: 1
+      width: 1,
+      type: 'number',
     },
     {
       field: 'spec',
       label: '규격',
-      width: 3
+      width: 3,
+      type: 'text',
     },
   ];
 
@@ -102,7 +117,7 @@ const Item = () => {
 
   const toCreation = () => navigate('/item/creation');
   
-  const toDetail = () => console.log(selectedRow);
+  const toDetail = () => navigate(`/item/${selectedRow.id}`);
 
   const search = async (searchValue:SearchType) => {
     setLoading(true);
@@ -125,18 +140,18 @@ const Item = () => {
     }).finally(() => setLoading(false));
   };
 
-  const getComboData = async () => {
+  const getPlaceList = async () => {
     await axios.get('/api/places').then((response) => {
       setPlaceList(response.data);
     }).catch((error) => console.log(error));
   }
 
-  const onSelect = (row:any) => {
-    selectedRow = row;
+  const onSelect = (row:ItemType) => {
+    setSelectedRow(row);
   }
 
   useEffect(() => {
-    getComboData();
+    getPlaceList();
     search({});
   }, []);
 
@@ -146,7 +161,7 @@ const Item = () => {
         <p className='title'>품목 관리</p>
         <div className='buttons'>
           <Button onClick={toCreation}>생성</Button>
-          <Button variant='dark' onClick={toDetail}>수정</Button>
+          <Button variant='dark' onClick={toDetail} disabled={!selectedRow.id}>상세</Button>
         </div>
       </ContentTopBar>
       <Search searchItems={searchItems} search={search} />

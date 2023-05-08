@@ -88,11 +88,13 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void modify(ItemDTO itemDto) {
-
+        Item item = repository.findById(itemDto.getId()).orElseThrow();
+        item.modify(itemDto);
+        repository.save(item);
     }
 
     @Override
     public void delete(Long id) {
-
+        repository.deleteById(id);
     }
 }

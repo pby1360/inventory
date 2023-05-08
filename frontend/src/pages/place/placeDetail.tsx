@@ -25,7 +25,6 @@ const PlaceDetail = () => {
   const [isEditable, setEditable] = useState(false);
 
   const getDetail = async () => {
-    console.log('getDetail');
     setLoading(true);
     axios.get(`/api/places/${params.placeId}`)
     .then((response:any) => {
@@ -129,7 +128,7 @@ const PlaceDetail = () => {
           {isEditable ?
             <>
               <Button type='submit' form='placeForm'>저장</Button>
-              <Button onClick={() => setEditable(false)} variant='danger'>취소</Button>
+              <Button onClick={() => setEditable(false)} variant='dark'>취소</Button>
             </>
             :
             <>
@@ -138,8 +137,6 @@ const PlaceDetail = () => {
               <Button onClick={() => navigate('/place')} variant='dark'>뒤로가기</Button>
             </>
           }
-          
-          
         </div>
       </ContentTopBar>
       <Form id='placeForm' className='d-grid p-3 form mt-1' onSubmit={handleSubmit}>

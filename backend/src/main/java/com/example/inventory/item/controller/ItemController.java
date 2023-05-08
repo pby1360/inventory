@@ -53,11 +53,26 @@ public class ItemController {
 
     @PutMapping
     public ResponseEntity modifyItem (@RequestBody ItemDTO itemDto) {
-        return null;
+        try {
+            service.modify(itemDto);
+            return ResponseEntity.status(HttpStatus.OK).body(null);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity deleteItem (@PathVariable Long id) {
-        return null;
+        try {
+            service.delete(id);
+            return ResponseEntity.status(HttpStatus.OK).body(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 }
