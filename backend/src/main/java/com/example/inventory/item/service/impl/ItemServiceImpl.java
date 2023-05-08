@@ -59,8 +59,6 @@ public class ItemServiceImpl implements ItemService {
             items = items.stream().filter(item -> item.getName().contains(request.getItemName())).collect(Collectors.toList());
         }
 
-        items.forEach(item -> log.info(item.getName()));
-
         return items.stream().map(item -> ItemResponse.toDto(item)).collect(Collectors.toList());
     }
 

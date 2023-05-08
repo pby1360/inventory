@@ -1,0 +1,117 @@
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button, Form } from 'react-bootstrap';
+
+import Content from '../../layout/Content';
+import ContentTopBar from '../../layout/ContentTopBar';
+import Loading from 'components/Loading';
+import Modal from 'components/CustomModal';
+
+import { axios } from 'components/CustomAxios';
+
+import { StorageType, PlaceUser } from 'components/Types'
+
+const StorageCreation = () => {
+  
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState<StorageType>({
+    placeId: undefined,
+    name: '',
+    remark: '',
+  });
+
+  const [placeList, setPlaceList] = useState<PlaceUser[]>([]);
+
+  const [isLoading, setLoading] = useState(false);
+
+  const [modalProps, setModalProps] = useState( {
+    show: false,
+    title: '',
+    message: '',
+    callback: () => {},
+  })
+
+  const getPlaceList = async () => {
+    await axios.get('/api/places').then((response) => {
+      setPlaceList(response.data);
+    }).catch((error) => console.log(error));
+  }
+
+  useEffect(() => {
+    getPlaceList();
+  }, []);
+
+  const successCallback = () => navigate('/storage');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.currentTarget.name]: e.currentTarget.value});
+  }
+
+  const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
+    
+    e.preventDefault();
+    
+    setLoading(true);
+
+    await axios.post('/api/storages', formData)
+      .then((response:any) => {
+        
+        if (response.status === 201) {
+          setModalProps({
+            show: true,
+            title: '생성 완료',
+            message: '저장소 생성을 완료 했습니다.',
+            callback: () => successCallback(),
+          });
+        } else {
+          setModalProps({
+            show: true,
+            title: '생성 실패',
+            message: '저장소 생성을 실패 했습니다.',
+            callback: () => null,
+          });
+        }
+      }).catch((error:any) => {
+        setModalProps({
+          show: true,
+          title: '생성 실패',
+          message: '저장소 생성을 실패 했습니다.',
+          callback: () => null,
+        });
+      })
+      .finally(() => setLoading(false));
+  }
+
+  return (
+    <Content className='storage-creation'>
+      <ContentTopBar>
+      <p className='title'>저장소 생성</p>
+        <div className='buttons'>
+          <Button type='submit' form='storageForm'>저장</Button>
+          <Button onClick={() => navigate('/storage')} variant='dark'>취소</Button>
+        </div>
+      </ContentTopBar>
+      <Form id='storageForm' className='d-grid p-3 form mt-1' onSubmit={handleSubmit}>
+        <Form.Group className="mb-3">
+          <Form.Label><strong>사업장 *</strong></Form.Label>
+          <Form.Control as="select" required name="placeId" value={formData.placeId} onChange={handleChange}>
+            <option value="">선택하세요</option>
+            {placeList.map(item => <option key={item.placeId} value={item.placeId}>{item.placeName}</option>)}
+          </Form.Control>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label><strong>저장소명 *</strong></Form.Label>
+          <Form.Control as="input" minLength={2} required name="name" value={formData.name} onChange={handleChange} />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label><strong>비고</strong></Form.Label>
+          <Form.Control as="textarea" name="remark" value={formData.remark} onChange={handleChange} />
+        </Form.Group>
+      </Form>
+      <Modal props={modalProps}></Modal>
+      {isLoading ? <Loading></Loading> : null}
+    </Content>
+  );
+};
+
+export default StorageCreation;

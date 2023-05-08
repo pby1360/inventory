@@ -4,7 +4,9 @@ import Place from './pages/place/place';
 import PlaceCreation from './pages/place/placeCreation';
 import PlaceDetail from './pages/place/placeDetail';
 import PlaceUser from 'pages/place/placeUser';
-import Area from './pages/area/area';
+import Storage from './pages/storage/storage';
+import StorageCreation from 'pages/storage/storageCreation';
+import StorageDetail from 'pages/storage/storageDetail';
 import Inventory from './pages/inventory/inventory';
 import Item from './pages/item/item';
 import ItemCreation from './pages/item/itemCreation';
@@ -66,12 +68,28 @@ export default [
     icon: null
   },
   {
-    name: 'area',
+    name: 'storage',
     label: '저장소',
-    path: '/area',
-    component: Area,
+    path: '/storage',
+    component: Storage,
     isNavData: true,
-    icon: BsBoxes,
+    icon: MdInventory,
+  },
+  {
+    name: 'storageCreation',
+    label: '품목 생성',
+    path: '/storage/creation',
+    component: StorageCreation,
+    isNavData: false,
+    icon: null
+  },
+  {
+    name: 'storageDetail',
+    label: '품목 상세정보',
+    path: '/storage/:id',
+    component: StorageDetail,
+    isNavData: false,
+    icon: null
   },
   {
     name: 'item',
@@ -103,7 +121,7 @@ export default [
     path: '/inventory',
     component: Inventory,
     isNavData: true,
-    icon: MdInventory,
+    icon: BsBoxes,
   },
   {
     name: 'signIn',

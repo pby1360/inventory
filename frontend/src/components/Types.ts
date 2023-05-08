@@ -42,13 +42,28 @@ interface ItemType {
   spec: string;
   createdAt?: string;
   createdBy?: string;
+  createUserName?: string;
   modifiedAt?: string;
   modifiedBy?: string;
-  remark: string;
+  modifyUserName?: string;
+  remark?: string;
+}
+
+interface StorageType {
+  id?: number;
+  placeId: number | undefined;
+  name: string;
+  createdAt?: string;
+  createdBy?: string;
+  createUserName?: string;
+  modifiedAt?: string;
+  modifiedBy?: string;
+  modifyUserName?: string;
+  remark?: string;
 }
 
 type SearchType = {
   [key: string]: string | number;
 }
 
-export type { Place, PlaceUser, User, ItemType, SearchType };
+export type { Place, PlaceUser, User, ItemType, SearchType, StorageType };

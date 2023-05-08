@@ -102,6 +102,9 @@
     background-color: #fff;
     border-radius: 5px;
     box-shadow: #ccc 0px 2px 2px;
+
+    max-height: calc(94vh - 105px);
+    overflow-y: auto;
   }
 }
 
