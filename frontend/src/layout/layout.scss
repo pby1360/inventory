@@ -138,5 +138,10 @@
     display: flex;
     justify-content: flex-end;
     gap: 2px;
+
+    button {
+      min-width: 5.5rem;
+      padding: 6px 6px;
+    }
   }
 }

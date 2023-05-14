@@ -62,8 +62,22 @@ interface StorageType {
   remark?: string;
 }
 
+interface InventoryType {
+  id?: number;
+  placeId: number | undefined;
+  storageId: number | undefined;
+  itemId: number | undefined;
+  itemType?: string;
+  quantity: number | undefined;
+  createdAt?: string;
+  createdBy?: string;
+  modifiedAt?: string;
+  modifiedBy?: string;
+  remark?: string;
+}
+
 type SearchType = {
   [key: string]: string | number;
 }
 
-export type { Place, PlaceUser, User, ItemType, SearchType, StorageType };
+export type { Place, PlaceUser, User, ItemType, SearchType, StorageType , InventoryType};

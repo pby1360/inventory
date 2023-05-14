@@ -161,7 +161,7 @@ const Item = () => {
         <p className='title'>품목 관리</p>
         <div className='buttons'>
           <Button onClick={toCreation}>생성</Button>
-          <Button variant='dark' onClick={toDetail} disabled={!selectedRow.id}>상세</Button>
+          <Button variant='dark' onClick={toDetail} disabled={!selectedRow.id}>상세보기</Button>
         </div>
       </ContentTopBar>
       <Search searchItems={searchItems} search={search} />

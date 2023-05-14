@@ -8,6 +8,8 @@ import Storage from './pages/storage/storage';
 import StorageCreation from 'pages/storage/storageCreation';
 import StorageDetail from 'pages/storage/storageDetail';
 import Inventory from './pages/inventory/inventory';
+import InventoryCreation from './pages/inventory/inventoryCreation';
+import InventoryDetail from './pages/inventory/inventoryDetail';
 import Item from './pages/item/item';
 import ItemCreation from './pages/item/itemCreation';
 import ItemDetail from './pages/item/itemDetail';
@@ -122,6 +124,22 @@ export default [
     component: Inventory,
     isNavData: true,
     icon: BsBoxes,
+  },
+  {
+    name: 'inventoryCreation',
+    label: '재고 등록',
+    path: '/inventory/creation',
+    component: InventoryCreation,
+    isNavData: false,
+    icon: null
+  },
+  {
+    name: 'inventoryDetail',
+    label: '재고 상세정보',
+    path: '/inventory/:id',
+    component: InventoryDetail,
+    isNavData: false,
+    icon: null
   },
   {
     name: 'signIn',

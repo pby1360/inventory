@@ -20,10 +20,11 @@ interface SearchItem {
 
 type PropsTpye = {
   searchItems: SearchItem[],
-  search: Function
+  search: Function,
+  onSelect?: Function
 }
 
-const Search = ({searchItems, search}: PropsTpye) => {  
+const Search = ({searchItems, search, onSelect}: PropsTpye) => {  
   
   const [searchValue, setSearchValue] = useState<SearchType>({});
 
@@ -61,6 +62,10 @@ const Search = ({searchItems, search}: PropsTpye) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue({ ...searchValue, [e.target.name]: e.target.value});
+    if (onSelect) {
+      onSelect({ ...searchValue, [e.target.name]: e.target.value});
+    }
+    
   }
 
   return (
